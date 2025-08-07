@@ -1,5 +1,6 @@
-<mvc:XMLView 
+<mvc:XMLView controllerName="test.controller.App"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc">
     <Title text="Hello World" level="H1" class="appTitle"></Title>
+    <Button text="Click" press=".onClick"></Button>
 </mvc:XMLView>
