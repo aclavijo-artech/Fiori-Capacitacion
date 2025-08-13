@@ -98,11 +98,11 @@ En este curso exploraremos juntos el desarrollo de aplicaciones Fiori, aplicando
 ## 🌱 Branch
 
 - **[Clase 2](#-clase-2--proyecto-freestyle-ui5-parte-1-arquitectura-y-componentes)**
-    - [1.0-Hello_World](../../tree/Fiori-Capacitacion/1.0-Hello_World)  
-    - [1.1-Boostrapping](../../tree/Fiori-Capacitacion/1.1-Boostrapping)  
-    - [1.2-View](../../tree/Fiori-Capacitacion/1.2-View)  
-    - [1.3-Controller](../../tree/Fiori-Capacitacion/1.3-Controller)
-    - [1.0-Ejercicio](../../tree/Fiori-Capacitacion/1.0-Ejercicio)
+    - [1.0-Hello_World](../../tree/1.0-Hello_World)  
+    - [1.1-Boostrapping](../../tree/1.1-Boostrapping)  
+    - [1.2-View](../../tree/1.2-View)  
+    - [1.3-Controller](../../tree/1.3-Controller)
+    - [1.0-Ejercicio](../../tree/1.0-Ejercicio)
 
 💡 **Tip:**  
 Cuando bajes el proyecto, puedes cambiar de rama con el siguiente comando:  
