@@ -1,3 +1,6 @@
 .appTitle {
+    /* Selecciona cualquier elemento con la clase 'appTitle' */
+    
     color: thistle;
+    /* Aplica el color de texto 'thistle', un tono lila claro */
 }

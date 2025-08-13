@@ -1,7 +1,7 @@
 {
-  "name": "test",
+  "name": "clase2",
   "version": "0.0.1",
-  "description": "Clase Test",
+  "description": "Capacitación Fiori Clase2",
   "main": "webapp/index",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
