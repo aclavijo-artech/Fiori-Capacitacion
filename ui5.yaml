@@ -1,4 +1,31 @@
-specVersion: "4.0" 
+specVersion: "4.0"
+# Define la versión del esquema (specification version) de UI5 Tooling que se usará.
+# "4.0" es una versión comúnmente utilizada para aplicaciones modernas UI5.
+# Esta versión afecta cómo se interpretan y validan las configuraciones del archivo.
+
 metadata:
-  name: test
-type: application
+  name: clase2
+  # Bajo 'metadata', se define información sobre el proyecto.
+  # 'name' especifica el nombre del proyecto o aplicación UI5. En este caso, se llama "test".
+
+  type: application
+  # Define el tipo de proyecto UI5.
+  # Puede ser uno de los siguientes:
+  #
+  # - "application":
+  #     Indica que el proyecto es una **aplicación ejecutable**.
+  #     UI5 Tooling espera que contenga un `Component.js`, vistas, controladores, y un `index.html`.
+  #     Se puede ejecutar directamente en el navegador y es el tipo más común para desarrollos UI5 frontend.
+  #
+  # - "library":
+  #     Indica que el proyecto es una **librería reutilizable**, que contiene controles, mixins, utilidades, etc.
+  #     Se puede compartir entre múltiples aplicaciones.
+  #     UI5 Tooling la compila y empaqueta, pero no la ejecuta como una app.
+  #
+  # - "theme":
+  #     Indica que el proyecto contiene **recursos de tematización** como estilos personalizados.
+  #     Se usa para extender o personalizar la apariencia de UI5 (por ejemplo, un tema Fiori personalizado).
+  #
+  # - "module":
+  #     Representa un **módulo reutilizable de bajo nivel** que puede ser usado por otros proyectos.
+  #     Menos común en apps UI5 tradicionales, pero útil para empaquetar código compartido o utilidades.

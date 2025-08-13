@@ -1,20 +1,47 @@
 {
-  "name": "test",
+  "name": "clase2",
+  // Nombre del proyecto en formato npm. Puede ser usado por herramientas como UI5 Tooling o incluso publicado en un registro npm privado.
+
   "version": "0.0.1",
-  "description": "Clase Test",
+  // Versión del proyecto. Relevante para control de versiones y despliegue.
+
+  "description": "Capacitación Fiori Clase2",
+  // Descripción corta del proyecto. Útil para identificar el propósito del repositorio o módulo.
+
   "main": "webapp/index",
+  // Entrada principal del proyecto. Aunque no es obligatorio para UI5, puede ser usado por herramientas externas o en empaquetado.
+  // En este caso, se apunta al archivo principal de la app en la carpeta `webapp`.
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  // Scripts personalizados para automatizar tareas con `npm run`.
+  // Aquí hay un script de prueba por defecto que solo lanza un mensaje de error.
+  // Puedes agregar scripts útiles como:
+  // "start": "ui5 serve",
+  // "build": "ui5 build --all"
+  
   "keywords": [
     "ui5",
     "open5",
     "sapui5"
   ],
+  // Palabras clave que describen el proyecto. Útiles para clasificación si se publica en un registro como npm.
+
   "author": "Andrés Clavijo",
+  // Autor del proyecto.
+
   "license": "ISC",
+  // Tipo de licencia. "ISC" es una licencia permisiva similar a MIT.
+
   "type": "commonjs",
+  // Indica que el proyecto usa el sistema de módulos CommonJS (por defecto en Node.js).
+  // Aunque no afecta directamente a UI5 (que tiene su propio sistema de módulos AMD), es relevante si usas Node.js para herramientas adicionales.
+
   "devDependencies": {
     "@ui5/cli": "^4.0.22"
   }
+  // Dependencias de desarrollo. Aquí se incluye la herramienta oficial UI5 CLI, necesaria para comandos como:
+  // - `ui5 serve` (iniciar servidor de desarrollo)
+  // - `ui5 build` (generar versión optimizada del proyecto)
 }

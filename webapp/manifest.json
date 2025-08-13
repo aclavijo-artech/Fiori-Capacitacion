@@ -1,6 +1,15 @@
 {
     "_version": "1.9.0",
+    // Indica la versión del formato del archivo manifest.json.
+    // No es la versión de tu aplicación, sino del esquema que SAPUI5 reconoce.
+    // La versión "1.9.0" es común en proyectos modernos y asegura compatibilidad con ciertas funcionalidades del framework.
+
     "sap.app": {
-        "id": "test"
+        // Nodo raíz obligatorio que contiene la configuración general de la aplicación (ID, título, descripción, etc.).
+
+        "id": "clase2"
+        // ID único de la aplicación.
+        // Es utilizado internamente por SAPUI5 para nombrar rutas, recursos y componentes.
+        // También se usa como parte del namespace (ej: `clase2.Component`).
     }
 }

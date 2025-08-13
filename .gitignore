@@ -1,2 +1,7 @@
 # Folders
+# Esta sección agrupa las carpetas que deben ser ignoradas por Git.
+
 node_modules/
+# Ignora la carpeta "node_modules", donde se instalan las dependencias de Node.js.
+# Esta carpeta puede contener miles de archivos y no debería subirse al repositorio,
+# ya que se puede regenerar automáticamente con el comando "npm install".
