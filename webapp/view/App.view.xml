@@ -1,0 +1,98 @@
+<mvc:XMLView controllerName="ejercicio1.controller.App"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+    <!-- Define una vista XML usando controles de la librería sap.m 
+         y especifica que está asociada al controlador "ejercicio1.controller.App" -->
+
+    <Shell>
+        <!-- Componente Shell: contenedor base de la aplicación -->
+
+        <App>
+            <!-- Componente App: contenedor de navegación para páginas -->
+
+            <pages>
+                <!-- Contenedor de las páginas dentro de la aplicación -->
+
+                <Page>
+                    <!-- Página principal -->
+
+                    <headerContent>
+                        <!-- Contenido del encabezado de la página -->
+
+                        <Title text="{i18n>greeting}" class="appTitle"/>
+                        <!-- Título con texto localizado (clave "greeting") 
+                             y clase CSS "appTitle" (para aplicar estilos animados) -->
+
+                        <ToolbarSeparator />
+                        <!-- Separador visual -->
+
+                        <ToolbarSpacer />
+                        <!-- Espaciador que empuja elementos hacia los extremos -->
+
+                        <ToolbarSeparator />
+                        <!-- Otro separador visual -->
+
+                        <Button text="{i18n>btnApp}" press=".onClick"/>
+                        <!-- Botón con texto localizado (clave "btnApp") 
+                             que al presionarse ejecuta el método "onClick" del controlador -->
+                    </headerContent> 
+
+                    <VBox>
+                        <!-- Contenedor vertical para organizar elementos en columnas -->
+
+                        <Table items="{oModel>/}" class="appTable">
+                            <!-- Tabla enlazada al modelo "oModel" (arreglo de productos)
+                                 y con clase CSS "appTable" para personalizar estilos -->
+
+                            <columns>
+                                <!-- Definición de las columnas de la tabla -->
+
+                                <Column>
+                                    <Text text="{i18n>tableId}" />
+                                    <!-- Encabezado: ID del producto -->
+                                </Column>
+
+                                <Column>
+                                    <Text text="{i18n>tableName}" />
+                                    <!-- Encabezado: Nombre del producto -->
+                                </Column>
+
+                                <Column>
+                                    <Text text="{i18n>tablePrice}" />
+                                    <!-- Encabezado: Precio -->
+                                </Column>
+
+                                <Column>
+                                    <Text text="{i18n>tableStock}" />
+                                    <!-- Encabezado: Stock disponible -->
+                                </Column>
+                            </columns>
+
+                            <items>
+                                <!-- Definición de cómo se mostrará cada fila -->
+
+                                <ColumnListItem>
+                                    <cells>
+                                        <!-- Celdas correspondientes a cada columna -->
+
+                                        <Text text="{oModel>id}" />
+                                        <!-- Muestra el ID del producto -->
+
+                                        <Text text="{oModel>nombre}" />
+                                        <!-- Muestra el nombre del producto -->
+
+                                        <Text text="{oModel>precio}" />
+                                        <!-- Muestra el precio -->
+
+                                        <Text text="{oModel>stock}" />
+                                        <!-- Muestra el stock disponible -->
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </VBox>    
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:XMLView>
