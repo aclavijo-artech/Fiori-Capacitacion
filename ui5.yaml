@@ -1,11 +1,26 @@
 specVersion: "4.0" 
 metadata:
-  name: test
+  name: clase2
 type: application
 framework:
   name: SAPUI5
+  # Define el framework que se usará en el proyecto.
+  # En este caso, es SAPUI5 (la versión comercial de UI5).
+
   version: "1.139.0"
+  # Especifica la versión exacta del framework SAPUI5 que se utilizará.
+  # Esto asegura consistencia en funcionalidades y APIs durante el desarrollo.
+
   libraries:
     - name: sap.m
+      # Biblioteca principal de controles móviles (Mobile) de SAPUI5.
+      # Contiene controles UI responsivos y optimizados para dispositivos móviles.
+
     - name: sap.ui.core
+      # Biblioteca núcleo que provee la infraestructura básica de UI5:
+      # clases base, sistema de eventos, modelos, bindings, etc.
+
     - name: themelib_sap_horizon
+      # Biblioteca de temas, en este caso el tema "sap_horizon".
+      # Define el estilo visual (colores, fuentes, diseño) de la aplicación.
+

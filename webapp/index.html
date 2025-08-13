@@ -3,19 +3,54 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Test</title>
+        <title>clase2</title>
         <script id="sap-ui-bootstrap" 
             src="resources/sap-ui-core.js" 
             data-sap-ui-theme="sap_horizon"
             data-sap-ui-libs="sap.m" 
             data-sap-ui-compat-version="edge" 
             data-sap-ui-async="true"
-            data-sap-ui-on-init="module:test/index" 
+            data-sap-ui-on-init="module:clase2/index" 
             data-sap-ui-resource-roots='{
-                    "test": "./"}'>
+                    "clase2": "./"}'>
         </script>
+        <!-- 
+            Este script es el "bootstrap" de SAPUI5: carga el núcleo del framework y lo configura para que la app arranque.
+            
+            id="sap-ui-bootstrap"
+                - Identifica el script especial que SAPUI5 reconoce para inicializar el framework.
+
+            src="resources/sap-ui-core.js"
+                - Ruta al archivo JavaScript principal de SAPUI5 que contiene el core del framework.
+
+            data-sap-ui-theme="sap_horizon"
+                - Define el tema visual que usará la aplicación, en este caso "sap_horizon".
+
+            data-sap-ui-libs="sap.m"
+                - Lista de bibliotecas que se cargarán (separadas por coma si hay más).
+
+            data-sap-ui-compat-version="edge"
+                - Configura la versión de compatibilidad.
+                - "edge" indica que se usará la versión más reciente del framework sin compatibilidad legacy.
+
+            data-sap-ui-async="true"
+                - Indica que la carga de UI5 será asíncrona para mejorar el rendimiento.
+
+            data-sap-ui-on-init="module:clase2/index"
+                - Define el módulo que se ejecutará cuando la inicialización termine.
+                - Aquí se llama al módulo "clase2/index", que generalmente es el punto de entrada de tu app.
+
+            data-sap-ui-resource-roots='{ "clase2": "./" }'
+                - Mapea el namespace "clase2" a la carpeta raíz actual "./".
+                - Esto permite que el framework encuentre tus módulos bajo el namespace "clase2". 
+        -->
     </head>
 
     <body id="content" class="sapUiBody">
+        <!--
+            Body de la página donde SAPUI5 inyectará el contenido UI.
+            La clase "sapUiBody" aplica estilos base del framework para garantizar el look & feel correcto.
+            El id "content" puede usarse para referenciar el cuerpo desde JS o CSS.
+        -->
     </body>
 </html>
