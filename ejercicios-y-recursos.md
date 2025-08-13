@@ -12,6 +12,8 @@ Este file contiene los materiales y ejercicios prácticos correspondientes a las
 
 - **Clase 2:**
     -  Extensiones
+        - SAP Fiori Tools - Extension Pack
+        - Console Ninja
 
 ## Ejercicio 
 
