@@ -40,7 +40,7 @@ En este curso exploraremos juntos el desarrollo de aplicaciones Fiori, aplicando
     - Controles comunes UI5
     - Crear proyecto Freestyle (Desde plantilla)
 
-    ### ⏳ CLASE 3 – Proyecto Freestyle UI5 (Parte 2): Routing y servicios
+    ### ✅ CLASE 3 – Proyecto Freestyle UI5 (Parte 2): Routing y servicios
 
     - Routing entre vistas
     - Navegación con parámetros

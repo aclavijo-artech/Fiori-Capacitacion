@@ -15,6 +15,12 @@ Este file contiene los materiales y ejercicios prácticos correspondientes a las
         - SAP Fiori Tools - Extension Pack
         - Console Ninja
 
+- **Clase 4:**
+    - [Documentación SAPUI5](https://ui5.sap.com/)
+    - [Explorador de Iconos SAPUI5](https://ui5.sap.com/test-resources/sap/m/demokit/iconExplorer/webapp/index.html)
+    - [Sistema de Diseño SAP Fiori](https://www.sap.com/design-system/?external)
+    - [Librería de Apps SAP Fiori](https://fioriappslibrary.hana.ondemand.com/sap/fix/externalViewer)
+
 ## Ejercicio 
 
 - **Clase 1:**
@@ -25,3 +31,15 @@ Este file contiene los materiales y ejercicios prácticos correspondientes a las
         - La aplicación debe contener:
             - Un campo de entrada (input) donde se le pida al usuario que ingrese su nombre.
             - Un botón que, al hacer clic, muestre el nombre ingresado por el usuario.
+
+- **Clase 3:**
+    - Deberán crear una aplicación UI5 utilizando plantilla, tal como lo hicimos en clase.
+    - La aplicación debe incluir lo siguiente:
+        > - Una pantalla principal donde esté tu información básica:
+        > - Nombre
+        > - Apellido
+        > - Email
+        > - GitHub
+    - Dos botones que te lleven a vistas de detalle:
+        > - Un detalle sin parámetros, donde hablarás sobre vos y tus hobbies.
+        > - Un detalle con parámetros, donde mostrarás tus cosas profesionales: qué tecnologías manejás, en qué áreas trabajaste, etc.
