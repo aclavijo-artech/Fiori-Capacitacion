@@ -1,0 +1,29 @@
+# Ignora la carpeta de dependencias de Node.js
+node_modules/
+
+# Ignora la carpeta generada con la versión "build" del proyecto
+dist/
+
+# Carpeta temporal generada por el SAP Cloud Platform (scp) CLI
+.scp/
+
+# Archivos que contienen variables de entorno (usualmente secretos)
+.env
+
+# Archivos de Makefile generados por herramientas MTA (Multi-Target Application)
+Makefile*.mta
+
+# Carpeta que guarda los archivos MTA exportados o empaquetados
+mta_archives
+
+# Archivos auxiliares del proceso de construcción de MTA
+mta-*
+
+# Carpeta de recursos locales, puede incluir librerías descargadas manualmente (opcional)
+resources
+
+# Archivo comprimido de despliegue o transporte
+archive.zip
+
+# Archivos temporales de construcción MTA que comienzan con punto
+.*_mta_build_tmp

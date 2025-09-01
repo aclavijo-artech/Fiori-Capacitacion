@@ -1,0 +1,45 @@
+# Indica al editor que use el esquema oficial para validar la sintaxis del archivo ui5.yaml
+# Esto es útil para herramientas como VS Code que soportan YAML schemas
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+# Versión del esquema de UI5 Tooling que se está utilizando (mínimo 3.1 para Fiori Tools)
+specVersion: "3.1"
+
+# Metadatos del proyecto
+metadata:
+  # Nombre del proyecto. Este debe coincidir con el namespace en manifest.json
+  # Y con la ruta del componente principal: webapp/clase3/Component.js
+  name: clase3
+
+# Tipo de proyecto. En este caso es una aplicación UI5 (no una librería ni módulo)
+type: application
+
+# Configuraciones del servidor de desarrollo local (cuando corres `ui5 serve`)
+server:
+  customMiddleware:
+    # Middleware para usar recursos UI5 desde CDN (evita tenerlos localmente)
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        # Si está en true, ignora errores de certificado SSL (útil en entornos internos)
+        ignoreCertError: false
+        ui5:
+          path:
+            - /resources           # Ruta para cargar recursos estándar UI5
+            - /test-resources      # Ruta para cargar recursos de prueba
+          url: https://ui5.sap.com  # URL base desde donde se sirven los recursos
+
+    # Middleware que recarga automáticamente la app al detectar cambios
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729               # Puerto donde se corre el servicio de autoreload
+        path: webapp              # Carpeta que se monitorea para recargar
+        delay: 300                # Espera en milisegundos antes de recargar
+
+    # Middleware para previsualizar la app simulando un entorno Fiori Launchpad
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        component: clase3  # ID del componente principal (igual que en manifest.json)
+        ui5Theme: sap_horizon        # Tema UI5 que se usará en la vista previa

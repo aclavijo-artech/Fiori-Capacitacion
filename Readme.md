@@ -1,120 +1,173 @@
-# 🎉  Capacitación UI5 - SAP Fiori
+> **Nota:** Los archivos `package.json` y `manifest.json` utilizan el formatos JSON, el cual **no permiten comentarios** estándar dentro del propio archivo. Por eso, los comentarios explicativos se han colocado aquí en el archivo Markdown, para documentar cada sección y facilitar la comprensión de la configuración sin afectar la validez de los archivos originales.
 
-¡Bienvenidos a la capacitación de **SAP UI5**!
-En este curso exploraremos juntos el desarrollo de aplicaciones Fiori, aplicando las mejores prácticas y técnicas para crear soluciones modernas, escalables y atractivas. 💻✨
+## Package
 
-> Gracias por ser parte de esta experiencia 🚀
-¡Manos al código y a construir aplicaciones increíbles! 💥
+```json
+{
+  "name": "clase3",                      // Nombre del proyecto
+  "version": "0.0.1",                   // Versión inicial del proyecto
+  "description": "Clase 3",             // Descripción corta del proyecto
+  "keywords": [                        // Etiquetas para identificar el proyecto
+    "ui5",
+    "openui5",
+    "sapui5"
+  ],
+  "main": "webapp/index.html",          // Archivo principal para iniciar la app
 
----
+  "dependencies": {},                   // Dependencias para producción (vacío aquí)
 
-## 📑 Temario
+  "devDependencies": {                  // Dependencias para desarrollo
+    "@ui5/cli": "^3.0.0",              // CLI de UI5 para comandos y build
+    "@sap/ux-ui5-tooling": "1"         // Herramientas de SAP UX para UI5
+  },
 
-- En esta sección encontrarás el temario completo:
+  "scripts": {                         // Comandos ejecutables con npm run
+    "start": "fiori run --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#devandywclase3-display\"",
+                                        // Ejecuta app en sandbox Fiori con cache deshabilitado y abre navegador
+    "start-local": "fiori run --config ./ui5-local.yaml --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#devandywclase3-display\"",
+                                        // Igual que start pero con configuración local UI5 personalizada
+    "build": "ui5 build --config=ui5.yaml --clean-dest --dest dist",
+                                        // Construye la app para producción, limpia carpeta destino y pone resultado en dist
+    "deploy": "fiori verify",           // Verifica y despliega la aplicación (comando de Fiori)
+    "deploy-config": "fiori add deploy-config", 
+                                        // Agrega configuración para despliegue
+    "start-noflp": "fiori run --open \"index.html?sap-ui-xx-viewCache=false\"",
+                                        // Inicia la app sin el sandbox FLP (Fiori Launchpad)
+    "start-variants-management": "fiori run --open \"preview.html?sap-ui-xx-viewCache=false&fiori-tools-rta-mode=true&sap-ui-rta-skip-flex-validation=true#preview-app\"",
+                                        // Ejecuta la app con modo RTA (adaptación en tiempo de ejecución) para variantes
+    "unit-tests": "fiori run --open 'test/unit/unitTests.qunit.html'",
+                                        // Ejecuta pruebas unitarias QUnit
+    "int-tests": "fiori run --open 'test/integration/opaTests.qunit.html'"
+                                        // Ejecuta pruebas de integración OPA5
+  },
 
-    ### ✅ CLASE 1 – Introducción a SAP Fiori y SAPUI5
-
-    - ¿Qué es SAP?
-    - SAP Clásico
-    - ¿Qué es SAP Fiori?
-        - Principios UX
-        - Tipos de apps estándar
-        - Launchpad
-    - ¿Qué es SAPUI5 / OpenUI5?
-        - Explicación de JavaScript
-        - Framework JS basado en MVC
-    - **SetUp del entorno**:
-        - SAP Business Application Studio (BAS) / local (VSC)
-        - Git y GitHub
-        - Node.js y UI5 CLI
-
-    ### ✅ CLASE 2 – Proyecto Freestyle UI5 (Parte 1): Arquitectura y componentes
-
-    - Crear proyecto Freestyle (Sin plantilla)
-        - Estructura del proyecto:
-            - `manifest.json`
-            - `Component.js`
-            - `webapp/*`
-            - Controladores y vistas (XML)
-            - Data Binding con JSONModel
-    - Controles comunes UI5
-    - Crear proyecto Freestyle (Desde plantilla)
-
-    ### ✅ CLASE 3 – Proyecto Freestyle UI5 (Parte 2): Routing y servicios
-
-    - Routing entre vistas
-    - Navegación con parámetros
-    - Consumo de servicios OData (Mock y Reales)
-    - Fragments y reutilización de vistas
-
-    ### ⏳ CLASE 4 – Fiori Elements y anotaciones
-
-    - ¿Qué es Fiori Elements?
-    - Plantillas
-    - Crear app Fiori Elements en BAS
-    - Anotaciones
-    - Crear Modelo y Vista desde CDS View
-
-    ### ⏳ CLASE 5 – SAP BTP, roles y despliegue con MTA
-
-    - Continuación de Fiori Elements (Extensiones y adaptaciones de vista/controlador)
-    - ¿Qué es SAP BTP?
-        - Subaccount, espacio, entitlements
-        - SAP Launchpad Service (Work Zone)
-            - Roles, catálogos, grupos en BTP
-    - Introducción al concepto de MTA (Multi-Target Application)
-        - `mta.yaml`, módulos y recursos
-        - Archivos: `xs-app.json`, `ui5-deploy.yaml`
-    - Build y deploy de una app UI5 en el Launchpad BTP
-
-    ### ⏳ CLASE 6 – Automatización: Build y CI/CD
-
-    - **Build Automation**:
-        - `ui5 build`, `mbt build`
-        - Scripts en `package.json`
-    - **Introducción a CI/CD**:
-        - ¿Qué es y cómo mejora el flujo de desarrollo?
-        - SAP Continuous Integration and Delivery
-        - Configurar un pipeline para apps UI5
-
-    ### ⏳ CLASE 7 – Testing UI5 
-
-    - Testing con UI5:
-        - QUnit (unit tests): controllers, formatters
-        - OPA5 (integration tests): UI, navegación
-    - Introducción a TypeScript en UI5:
-        - ¿Por qué usar TS?
-        - Proyecto base con TypeScript
-        - Configuración de `tsconfig.json` y ui5-tooling
-
----
-
-## 🥳
-
-[Ejercicios y Recursos](./ejercicios-y-recursos.md)
-
----
-
-## 🌱 Branch
-
-- **[Clase 2](#-clase-2--proyecto-freestyle-ui5-parte-1-arquitectura-y-componentes)**
-    - [1.0-Hello_World](../../tree/1.0-Hello_World)  
-    - [1.1-Boostrapping](../../tree/1.1-Boostrapping)  
-    - [1.2-View](../../tree/1.2-View)  
-    - [1.3-Controller](../../tree/1.3-Controller)
-    - [1.0-Ejercicio](../../tree/1.0-Ejercicio)
-
-💡 **Tip:**  
-Cuando bajes el proyecto, puedes cambiar de rama con el siguiente comando:  
-
-```bash
-git switch <nombre-de-la-rama>
-# También lo puedes hacer con:
-git checkout <nombre-de-la-rama>
+  "sapuxLayer": "CUSTOMER_BASE"        // Capa SAP UX personalizada para esta app
+}
 ```
 
----
+## Manifest
+```json
+# Versión del esquema UI5 para este manifest.json
+"_version": "1.65.0"
 
-## 🏆 Proyecto Final
+# Metadata general de la aplicación
+sap.app:
+  # Identificador único de la app
+  id: "clase3"
 
-- **Objetivo:** en proceso
+  # Tipo de proyecto: aplicación UI5
+  type: "application"
+
+  # Archivo para traducciones (internacionalización)
+  i18n: "i18n/i18n.properties"
+
+# Versión de la aplicación
+  applicationVersion:
+    version: "0.0.1"
+  
+  # Título y descripción usan claves para textos traducibles
+  title: "{{appTitle}}"
+  description: "{{appDescription}}"
+  
+  # Archivo con recursos adicionales
+  resources: "resources.json"
+  
+  # Plantilla base usada para generar esta app
+  sourceTemplate:
+    id: "@sap/generator-fiori:basic"
+    version: "1.16.1"
+    toolsId: "28a0febe-27f8-453f-89a6-abc32a7934ab"
+
+# Configuración UI5 general
+sap.ui:
+  
+  # Tecnología usada
+  technology: "UI5"
+  
+  # Íconos para diferentes dispositivos (vacíos aquí)
+  icons:
+    icon: ""
+    favIcon: ""
+    phone: ""
+    phone@2: ""
+    tablet: ""
+    tablet@2: ""
+  
+  # Tipos de dispositivos soportados
+  deviceTypes:
+    desktop: true
+    tablet: true
+    phone: true
+
+# Configuración específica de UI5 para esta app
+sap.ui5:
+  # Deshabilita SAPUI5 flexibility (adaptación en tiempo de ejecución)
+  flexEnabled: false
+
+  # Dependencias y versiones mínimas de librerías UI5
+  dependencies:
+    minUI5Version: "1.139.0"
+    libs:
+      sap.m: {}          # Librería de controles móviles
+      sap.ui.core: {}    # Núcleo UI5
+
+  # Soporte para densidades de contenido (compacta y cómoda)
+  contentDensities:
+    compact: true
+    cozy: true
+
+  # Modelos declarados (para internacionalización)
+  models:
+    i18n:
+      type: "sap.ui.model.resource.ResourceModel"
+      settings:
+        bundleName: "clase3.i18n.i18n"
+
+  # Recursos CSS adicionales
+  resources:
+    css:
+      - uri: "css/style.css"
+
+  # Configuración de rutas y navegación entre vistas
+  routing:
+    config:
+      # Clase del router para móviles (sap.m.routing.Router)
+      routerClass: "sap.m.routing.Router"
+      
+      # Aggregation del control contenedor donde se insertan las vistas
+      controlAggregation: "pages"
+      
+      # Id del control contenedor (generalmente App)
+      controlId: "app"
+      
+      # Animación en transición entre vistas
+      transition: "slide"
+      
+      # Tipo de navegación: basado en vistas XML
+      type: "View"
+      viewType: "XML"
+      
+      # Ruta base para las vistas
+      path: "clase3.view"
+      
+      # Carga asíncrona de vistas
+      async: true
+
+    # Definición de rutas URL y targets (vistas a mostrar)
+    routes:
+      - name: "RouteApp"        # Ruta principal
+        pattern: ":?query:"     # URL base sin patrón
+        target: ["TargetApp"]   # Vista destino
+
+    # Mapeo de targets a vistas y controles
+    targets:
+      TargetApp:
+        id: "App"
+        name: "App"
+
+  # Vista raíz que se carga al iniciar la aplicación
+  rootView:
+    viewName: "clase3.view.App"
+    type: "XML"
+    id: "AppRoot"
+```

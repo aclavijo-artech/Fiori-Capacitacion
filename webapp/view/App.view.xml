@@ -1,0 +1,18 @@
+<mvc:View controllerName="clase3.controller.App"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:f="sap.f"
+    height="100%">
+
+	<App id="app">
+		<pages>
+			<Page title="App">
+				<content>
+					<VBox class="sapUiSmallMargin">
+						<Text text="{i18n>hello}" />
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
