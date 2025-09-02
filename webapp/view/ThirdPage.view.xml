@@ -7,6 +7,7 @@
         <content>
             <VBox class="sapUiSmallMargin">
                 <Text text="{i18n>appDescription} 🎉" />
+                <Text id="thirdPageTextParam"/>
             </VBox>
         </content>
     </Page>
