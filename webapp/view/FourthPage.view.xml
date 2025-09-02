@@ -1,0 +1,14 @@
+<mvc:View controllerName="clase3.controller.FourthPage"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:f="sap.f"
+    height="100%">
+    <Page>
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <Text text="test" />
+                <Text text="test"/>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

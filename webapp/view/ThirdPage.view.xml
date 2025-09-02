@@ -9,6 +9,7 @@
                 <Text text="{i18n>appDescription} 🎉" />
                 <Text id="thirdPageTextParam"/>
             </VBox>
+            <Button press=".ontoFourthPage" text="{i18n>toFourthPage}"/>
         </content>
     </Page>
 </mvc:View>

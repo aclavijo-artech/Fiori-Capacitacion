@@ -92,6 +92,13 @@
                     "target": [
                         "TargetThirdPage"
                     ]
+                },
+                {
+                    "name": "RouteFourthPage",
+                    "pattern": "ThirdPage/{param}/FourthPage",
+                    "target": [
+                        "TargetFourthPage"
+                    ]
                 }
             ],
             "targets": {
@@ -106,6 +113,10 @@
                 "TargetThirdPage": {
                     "id": "ThirdPage",
                     "name": "ThirdPage"
+                },
+                "TargetFourthPage": {
+                    "id": "FourthPage",
+                    "name": "FourthPage"
                 }
             }
         },
