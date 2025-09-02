@@ -6,8 +6,11 @@
     <Page>
         <content>
             <VBox class="sapUiSmallMargin">
-                <Text text="test" />
-                <Text text="test"/>
+                <Title id="fourthPageTitle" 
+                    level="H1" 
+                    titleStyle="H1"/>
+                <Text text="{localModel>/name}" />
+                <Text text="{localModel>/lastName}"/>
             </VBox>
         </content>
     </Page>
