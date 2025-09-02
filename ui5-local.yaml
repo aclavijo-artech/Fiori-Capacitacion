@@ -1,40 +1,33 @@
-# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
-
-specVersion: "3.1"  # Versión del esquema de UI5 Tooling utilizada (necesaria para Fiori Tools)
-
+specVersion: "3.1"
 metadata:
-  name: clase3  # Nombre del proyecto. Debe coincidir con el namespace principal de la app.
-
-type: application  # Indica que es una aplicación UI5 (no una librería ni componente reutilizable)
+  name: clase3
+type: application
 
 framework:
-  name: SAPUI5         # Define el framework base. Puede ser SAPUI5 o OpenUI5.
-  version: 1.129.0     # Versión específica del framework que se usará para desarrollo
-  libraries:           # Librerías necesarias para el proyecto (se descargan automáticamente si usas ui5-tooling)
-    - name: sap.m             # Controles móviles y de diseño responsivo (botones, tablas, inputs, etc.)
-    - name: sap.ui.core       # Núcleo del framework (base para todos los componentes)
-    - name: sap.ushell        # Librería necesaria para simular un entorno Fiori Launchpad
-    - name: themelib_sap_horizon  # Tema visual Horizon de SAP (interfaz moderna)
+  name: SAPUI5
+  version: 1.129.0    
+  libraries:
+    - name: sap.m
+    - name: sap.ui.core
+    - name: sap.ushell
+    - name: themelib_sap_horizon
 
 server:
   customMiddleware:
-    # Middleware para recargar automáticamente la app en el navegador cuando hay cambios
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
-        port: 35729     # Puerto para el servicio de autoreload (Live Reload)
-        path: webapp     # Carpeta que se observa para detectar cambios
-        delay: 300       # Retraso en milisegundos antes de recargar la vista
+        port: 35729
+        path: webapp
+        delay: 300
 
-    # Middleware para simular un entorno de ejecución dentro del Fiori Launchpad (preview)
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: clase3  # ID del componente principal definido en manifest.json
-        ui5Theme: sap_horizon        # Tema visual a usar en la vista previa
+        component: clase3
+        ui5Theme: sap_horizon
 
-    # Middleware para redirigir rutas a los recursos oficiales de SAP (CDN)
     - name: fiori-tools-proxy
       afterMiddleware: compression
       configuration:
-        ignoreCertError: false  # Si se pone en true, ignora errores de certificados (útil con servidores locales)
+        ignoreCertError: false

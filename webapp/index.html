@@ -1,26 +1,15 @@
 <!DOCTYPE html>
-<!-- Define el tipo de documento como HTML5 -->
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <!-- Establece la codificación de caracteres a UTF-8 -->
-
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Permite que el diseño sea responsive en dispositivos móviles -->
-
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <!-- Garantiza compatibilidad con Internet Explorer en modo Edge -->
-
         <title>Welcome to Clase 3</title>
-        <!-- Título que se mostrará en la pestaña del navegador -->
-
         <style>
             html, body, body > div, #container, #container-uiarea {
                 height: 100%;
             }
-            /* Asegura que toda la aplicación ocupe el alto completo del navegador */
         </style>
-
         <script
             id="sap-ui-bootstrap"
             src="/resources/sap-ui-core.js"
@@ -33,19 +22,8 @@
             data-sap-ui-async="true"
             data-sap-ui-frameOptions="trusted"
         ></script>
-        <!-- Script que carga e inicializa el núcleo SAPUI5 desde ruta local -->
-        <!-- data-sap-ui-theme: define el tema visual sap_horizon -->
-        <!-- data-sap-ui-resourceroots: namespace y ruta base de la aplicación -->
-        <!-- data-sap-ui-oninit: arranca el componente raíz automáticamente -->
-        <!-- data-sap-ui-compatVersion: usa versión moderna de compatibilidad -->
-        <!-- data-sap-ui-async: carga asincrónica para mejor rendimiento -->
-        <!-- data-sap-ui-frameOptions: permite iframe confiable -->
     </head>
-
     <body class="sapUiBody sapUiSizeCompact" id="content">
-        <!-- sapUiBody: clase base de UI5 -->
-        <!-- sapUiSizeCompact: densidad visual compacta -->
-
         <div
             data-sap-ui-component
             data-name="clase3"
@@ -53,12 +31,5 @@
             data-settings='{"id" : "clase3"}'
             data-handle-validation="true"
         ></div>
-        <!-- 
-            data-sap-ui-component: Indica que SAPUI5 debe montar un componente en este contenedor.
-            data-name="clase3": Nombre del componente principal de la aplicación a cargar.
-            data-id="container": ID del contenedor en el DOM.
-            data-settings='{"id" : "clase3"}': Configuración inicial del componente, aquí asignando un ID interno.
-            data-handle-validation="true": Activa la gestión automática de validaciones UI5 en formularios dentro del contenedor.
-        -->
     </body>
 </html>
