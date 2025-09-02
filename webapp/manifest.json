@@ -78,12 +78,23 @@
                     "target": [
                         "TargetApp"
                     ]
+                },
+                {
+                    "name": "RouteSecondPage",
+                    "pattern": "SecondPage",
+                    "target": [
+                        "TargetSecondPage"
+                    ]
                 }
             ],
             "targets": {
                 "TargetApp": {
                     "id": "App",
                     "name": "App"
+                },
+                "TargetSecondPage": {
+                    "id": "SecondPage",
+                    "name": "SecondPage"
                 }
             }
         },

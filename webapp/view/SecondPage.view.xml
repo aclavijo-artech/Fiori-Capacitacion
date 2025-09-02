@@ -1,0 +1,13 @@
+<mvc:View controllerName="clase3.controller.SecondPage"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:f="sap.f"
+    height="100%">
+    <Page>
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <Text text="{i18n>appDescription}" />
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

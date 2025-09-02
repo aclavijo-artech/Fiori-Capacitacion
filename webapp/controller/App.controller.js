@@ -5,6 +5,12 @@ sap.ui.define([
 
     return Controller.extend("clase3.controller.App", {       
         onInit() {
+        },
+        
+        onToSecondPage() {
+            const oRouter = this.getOwnerComponent().getRouter();
+            
+            oRouter.navTo("RouteSecondPage");
         }
     });
 });
