@@ -14,6 +14,18 @@ sap.ui.define([
                 let oModel = new JSONModel(Device);
                 oModel.setDefaultBindingMode("OneWay");
                 return oModel;
+            },
+
+            createGlobalModel: function () {
+                const oData = {
+                    value: "Este es un modelo global",
+                    name: "Felipe",
+                    lastName: "Rojas"
+                }
+                
+                const  oModel = new JSONModel(oData);
+                oModel.setDefaultBindingMode("TwoWay");
+                return oModel;
             }
         };
     });
