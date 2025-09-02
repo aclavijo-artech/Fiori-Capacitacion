@@ -85,6 +85,13 @@
                     "target": [
                         "TargetSecondPage"
                     ]
+                },
+                {
+                    "name": "RouteThirdPage",
+                    "pattern": "ThirdPage/{param}",
+                    "target": [
+                        "TargetThirdPage"
+                    ]
                 }
             ],
             "targets": {
@@ -95,6 +102,10 @@
                 "TargetSecondPage": {
                     "id": "SecondPage",
                     "name": "SecondPage"
+                },
+                "TargetThirdPage": {
+                    "id": "ThirdPage",
+                    "name": "ThirdPage"
                 }
             }
         },

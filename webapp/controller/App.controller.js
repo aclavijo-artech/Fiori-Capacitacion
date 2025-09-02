@@ -11,6 +11,14 @@ sap.ui.define([
             const oRouter = this.getOwnerComponent().getRouter();
             
             oRouter.navTo("RouteSecondPage");
+        },
+
+        onToThirdPage() {
+            const oRouter = this.getOwnerComponent().getRouter();
+            
+            oRouter.navTo("RouteThirdPage", {
+                param: "12345"
+            });
         }
     });
 });
