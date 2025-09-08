@@ -1,14 +1,21 @@
 <core:FragmentDefinition xmlns:form="sap.ui.layout.form" 
     xmlns="sap.m" 
     xmlns:core="sap.ui.core">
+    <!-- Definición de un diálogo como fragmento -->
     <Dialog>
+        <!-- Contenedor vertical para los controles dentro del diálogo -->
         <VBox>
+            <!-- Campo de entrada que enlaza el valor con la propiedad "name" del modelo global -->
             <Input value="{globalModel>/name}" width="50%"/>
         </VBox>        
+        <!-- Pie de diálogo con barra de herramientas -->
         <footer>
             <Toolbar>
+                <!-- Espaciador para separar botones -->
                 <ToolbarSpacer/>
+                <!-- Botón para cancelar la edición, llama a la función onEditFragment -->
                 <Button text="{i18n>cancelar}" type="Reject" press=".onEditFragment"/>
+                <!-- Botón para guardar la edición, enfatizado, también llama a onEditFragment -->
                 <Button text="{i18n>save}" type="Emphasized" press=".onEditFragment"/>
             </Toolbar>
         </footer>

@@ -21,6 +21,7 @@
                 <Text text="{globalModel>/name}" />
                 <Text text="{globalModel>/lastName}" />
             </VBox>
+            <!-- Botón que abre el fragmento al hacer clic, con texto tomado del modelo i18n -->
             <Button text="{i18n>fragment}" press=".onOpenFragment"/>
         </content>
     </Page>
