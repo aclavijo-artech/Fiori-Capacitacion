@@ -47,7 +47,7 @@ En este curso exploraremos juntos el desarrollo de aplicaciones Fiori, aplicando
     - Consumo de servicios OData (Mock y Reales)
     - Fragments y reutilización de vistas
 
-    ### ⏳ CLASE 4 – Fiori Elements y anotaciones
+    ### ✅ CLASE 4 – Fiori Elements y anotaciones
 
     - ¿Qué es Fiori Elements?
     - Plantillas
@@ -103,6 +103,16 @@ En este curso exploraremos juntos el desarrollo de aplicaciones Fiori, aplicando
     - [1.2-View](../../tree/1.2-View)  
     - [1.3-Controller](../../tree/1.3-Controller)
     - [1.0-Ejercicio](../../tree/1.0-Ejercicio)
+
+- **[Clase 3](#-clase-3--proyecto-freestyle-ui5-parte-2-routing-y-servicios)**
+    - [2.0-Wizard_Template](../../tree/2.0-Wizard_Template)  
+    - [2.1-Routing_Without_Params](../../tree/2.1-Routing_Without_Params)  
+    - [2.2-Routing_With_Params](../../tree/2.2-Routing_With_Params)  
+    - [2.3-Consume_Route_Param](../../tree/2.3-Consume_Route_Param)  
+    - [2.4-Add_And_Use_Local_Model_JSONModel](../../tree/2.4-Add_And_Use_Local_Model_JSONModel)  
+    - [2.5-Add_And_Use_Global_Model_JSONModel](../../tree/2.5-Add_And_Use_Global_Model_JSONModel)  
+    - [2.6-Fragments](../../tree/2.6-Fragments)  
+    - [2.7-Formatter](../../tree/2.7-Formatter)
 
 💡 **Tip:**  
 Cuando bajes el proyecto, puedes cambiar de rama con el siguiente comando:  

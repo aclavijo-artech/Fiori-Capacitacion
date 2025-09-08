@@ -12,14 +12,21 @@ Este file contiene los materiales y ejercicios prácticos correspondientes a las
 
 - **Clase 2:**
     -  Extensiones
-        - SAP Fiori Tools - Extension Pack
-        - Console Ninja
+        - [SAP Fiori Tools - Extension Pack](https://marketplace.visualstudio.com/items?itemName=SAPSE.sap-ux-fiori-tools-extension-pack)
+        - [Console Ninja](https://marketplace.visualstudio.com/items?itemName=WallabyJs.console-ninja)
+        - [Markdown Preview](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
+        - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
 - **Clase 4:**
     - [Documentación SAPUI5](https://ui5.sap.com/)
     - [Explorador de Iconos SAPUI5](https://ui5.sap.com/test-resources/sap/m/demokit/iconExplorer/webapp/index.html)
     - [Sistema de Diseño SAP Fiori](https://www.sap.com/design-system/?external)
     - [Librería de Apps SAP Fiori](https://fioriappslibrary.hana.ondemand.com/sap/fix/externalViewer)
+
+- **Clase 5:**
+    - [OASIS OData Vocabularies - Vocabularios estándar para anotaciones OData](https://github.com/oasis-tcs/odata-vocabularies)
+    - [SAP OData Vocabularies - Vocabularios SAP para anotaciones semánticas en OData](https://github.com/SAP/odata-vocabularies)
+    - [Documentación SAPUI5 sobre SAP Fiori Elements - Guía oficial y ejemplos](https://github.com/SAP-docs/sapui5/tree/main/docs/06_SAP_Fiori_Elements)
 
 ## Ejercicio 
 
@@ -43,3 +50,13 @@ Este file contiene los materiales y ejercicios prácticos correspondientes a las
     - Dos botones que te lleven a vistas de detalle:
         > - Un detalle sin parámetros, donde hablarás sobre vos y tus hobbies.
         > - Un detalle con parámetros, donde mostrarás tus cosas profesionales: qué tecnologías manejás, en qué áreas trabajaste, etc.
+
+- **Clase 4:**
+    - Deberán crear una aplicación Fiori Elements utilizando la plantilla List Report, tal como lo hicimos en clase.
+    - La aplicación debe incluir lo siguiente:
+        > - Usar el oData de NorthWind, pero no podrán usar como método principal el de products, ya que fue el que se usó en clase.
+        > - Deberá tener 4 filtros como mínimo para facilitar la búsqueda.
+        > - Deberá mostrar una tabla con al menos 5 columnas.
+        > - Deberá tener una vista de detalle para cada ítem, donde se muestre el detalle completo del elemento seleccionado.
+    - Incluir un botón custom con funcionalidad propia:
+        > - Colocar un controller custom para manejar esa funcionalidad.
