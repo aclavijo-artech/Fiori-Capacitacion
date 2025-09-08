@@ -16,6 +16,8 @@ sap.ui.define([
             UIComponent.prototype.init.apply(this, arguments);
 
             this.setModel(models.createDeviceModel(), "device");
+            
+            // Establece el modelo global llamado "globalModel" usando la función createGlobalModel()
             this.setModel(models.createGlobalModel(), "globalModel");
 
             this.getRouter().initialize();
