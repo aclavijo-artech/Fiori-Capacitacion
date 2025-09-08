@@ -4,12 +4,17 @@
 	xmlns:f="sap.f"
     height="100%">
     <Page>
+    <!-- Sección de contenido de la página -->
         <content>
+            <!-- Contenedor vertical con margen pequeño -->
             <VBox class="sapUiSmallMargin">
+                <!-- Título principal con id "fourthPageTitle" y estilo H1 -->
                 <Title id="fourthPageTitle" 
                     level="H1" 
                     titleStyle="H1"/>
+                <!-- Texto que muestra el valor "name" del modelo local -->
                 <Text text="{localModel>/name}" />
+                <!-- Texto que muestra el valor "lastName" del modelo local -->
                 <Text text="{localModel>/lastName}"/>
             </VBox>
         </content>

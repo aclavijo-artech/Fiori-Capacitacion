@@ -9,7 +9,8 @@
                 <Text text="{i18n>appDescription} 🎉" />
                 <Text id="thirdPageTextParam"/>
             </VBox>
-            <Button press=".ontoFourthPage" text="{i18n>toFourthPage}"/>
+            <!-- Botón que navega a la cuarta página al hacer clic, con texto desde el modelo i18n -->
+            <Button press=".onToFourthPage" text="{i18n>toFourthPage}"/>
         </content>
     </Page>
 </mvc:View>
