@@ -14,11 +14,13 @@ sap.ui.define([
         },
 
         onToThirdPage() {
-            const oRouter = this.getOwnerComponent().getRouter();
-            
-            oRouter.navTo("RouteThirdPage", {
-                param: "12345"
-            });
+        // Obtiene el enrutador del componente principal
+        const oRouter = this.getOwnerComponent().getRouter();
+        
+        // Navega a la ruta "RouteThirdPage" pasando el parámetro dinámico "param" con valor "12345"
+        oRouter.navTo("RouteThirdPage", {
+            param: "12345"
+        });
         }
     });
 });

@@ -13,6 +13,8 @@
 					</VBox>
 					<VBox class="sapUiSmallMargin">
 						<Button text="{i18n>toSecondPage}" press=".onToSecondPage" />
+						
+						<!-- Botón con texto "Go to Third Page" que ejecuta la función onToThirdPage al hacer clic -->
 						<Button text="{i18n>toThirdPage}" press=".onToThirdPage" />
 					</VBox>
 				</content>

@@ -4,8 +4,11 @@
 	xmlns:f="sap.f"
     height="100%">
     <Page>
+        <!-- Sección de contenido de la página -->
         <content>
+            <!-- Contenedor vertical con margen pequeño -->
             <VBox class="sapUiSmallMargin">
+                <!-- Texto que muestra la descripción de la aplicación desde el modelo i18n, con emoji 🎉 -->
                 <Text text="{i18n>appDescription} 🎉" />
             </VBox>
         </content>
