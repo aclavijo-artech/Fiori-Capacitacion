@@ -11,7 +11,9 @@
 					<VBox class="sapUiSmallMargin">
 						<Text text="{i18n>hello}" />
 					</VBox>
+					<!-- Contenedor vertical con margen pequeño -->
 					<VBox class="sapUiSmallMargin">
+						<!-- Botón que navega a la segunda página al hacer clic -->
 						<Button text="{i18n>toSecondPage}" press=".onToSecondPage" />
 					</VBox>
 				</content>

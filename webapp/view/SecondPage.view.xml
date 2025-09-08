@@ -3,9 +3,13 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:f="sap.f"
     height="100%">
+   <!-- Contenedor principal de la página -->
     <Page>
+        <!-- Sección de contenido de la página -->
         <content>
+            <!-- Contenedor vertical con margen pequeño -->
             <VBox class="sapUiSmallMargin">
+                <!-- Muestra el texto de descripción de la aplicación desde el modelo i18n -->
                 <Text text="{i18n>appDescription}" />
             </VBox>
         </content>
