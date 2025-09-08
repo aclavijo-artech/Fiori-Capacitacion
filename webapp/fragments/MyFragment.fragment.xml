@@ -3,6 +3,7 @@
     xmlns:core="sap.ui.core">
     <Dialog>
         <VBox>
+            <!-- Input enlazado al valor 'name' del modelo global, usando el formatter 'formatName' para formatear el texto mostrado -->
             <Input value="{ path: 'globalModel>/name', formatter: '.formatter.formatName' }" width="50%"/>
         </VBox>        
         <footer>

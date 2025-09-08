@@ -2,12 +2,15 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/Fragment",
+    // Importa el archivo de formateadores personalizados (formatter.js)
     "clase3/model/formatter",
+    // Importa la clase MessageBox de SAPUI5 para mostrar mensajes modales
     "sap/m/MessageBox",
 ], function (Controller, JSONModel, Fragment, formatter, MessageBox) {
     "use strict";
 
     return Controller.extend("clase3.controller.FourthPage", {     
+        // Asigna el objeto 'formatter' para poder usar sus funciones en la vista (por ejemplo, en bindings con formatter)
         formatter: formatter,
 
         onInit() {
@@ -42,12 +45,21 @@ sap.ui.define([
             const sButtonText = oEvent.getSource().getText();
 
             if (sButtonText === "Save") {
-                if (oFragmentEdit.getContent()[0].getItems()[0].getValue().trim() === "") return MessageBox.warning("Es un campo vacío");
+                // Verifica si el campo de entrada está vacío (sin espacios)
+                if (oFragmentEdit.getContent()[0].getItems()[0].getValue().trim() === "") {
+                    // Muestra una advertencia si el campo está vacío y sale de la función
+                    return MessageBox.warning("Es un campo vacío");
+                }
 
-                this.getView().getModel("globalModel").setProperty("/name", oFragmentEdit.getContent()[0].getItems()[0].getValue());
+                // Si el campo tiene contenido, actualiza el valor "name" en el modelo global
+                this.getView().getModel("globalModel").setProperty(
+                    "/name", 
+                    oFragmentEdit.getContent()[0].getItems()[0].getValue()
+                );
+
+                // Muestra una notificación indicando que la información se está guardando
                 sap.m.MessageToast.show("Guardando información...");
-            } 
-
+            }
             
             oFragmentEdit.close();
         },
