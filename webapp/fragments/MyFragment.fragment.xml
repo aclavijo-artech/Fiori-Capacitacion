@@ -3,7 +3,7 @@
     xmlns:core="sap.ui.core">
     <Dialog>
         <VBox>
-            <Input value="{globalModel>/name}" width="50%"/>
+            <Input value="{ path: 'globalModel>/name', formatter: '.formatter.formatName' }" width="50%"/>
         </VBox>        
         <footer>
             <Toolbar>

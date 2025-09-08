@@ -1,11 +1,15 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
-    "sap/ui/core/Fragment"
-], function (Controller, JSONModel, Fragment) {
+    "sap/ui/core/Fragment",
+    "clase3/model/formatter",
+    "sap/m/MessageBox",
+], function (Controller, JSONModel, Fragment, formatter, MessageBox) {
     "use strict";
 
-    return Controller.extend("clase3.controller.FourthPage", {       
+    return Controller.extend("clase3.controller.FourthPage", {     
+        formatter: formatter,
+
         onInit() {
             const oData = {
                 value: "Este es un modelo local",
@@ -37,7 +41,10 @@ sap.ui.define([
             const oFragmentEdit = await this._oFragment;
             const sButtonText = oEvent.getSource().getText();
 
-            if (sButtonText === "Accept") {
+            if (sButtonText === "Save") {
+                if (oFragmentEdit.getContent()[0].getItems()[0].getValue().trim() === "") return MessageBox.warning("Es un campo vacío");
+
+                this.getView().getModel("globalModel").setProperty("/name", oFragmentEdit.getContent()[0].getItems()[0].getValue());
                 sap.m.MessageToast.show("Guardando información...");
             } 
 
