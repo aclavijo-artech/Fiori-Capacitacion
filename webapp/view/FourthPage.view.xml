@@ -14,17 +14,14 @@
                 <Text text="{localModel>/lastName}"/>
             </VBox>
            <VBox class="sapUiSmallMargin">
-                <!-- Título secundario con id "fourthPageTitleGlobal" y estilo H2 -->
                 <Title id="fourthPageTitleGlobal" 
                     level="H2" 
                     titleStyle="H2"/>
-                <!-- Texto que muestra el valor "value" del modelo global -->
                 <Text text="{globalModel>/value}" />
-                <!-- Texto que muestra el valor "name" del modelo global -->
                 <Text text="{globalModel>/name}" />
-                <!-- Texto que muestra el valor "lastName" del modelo global -->
                 <Text text="{globalModel>/lastName}" />
             </VBox>
+            <Button text="{i18n>fragment}" press=".onOpenFragment"/>
         </content>
     </Page>
 </mvc:View>
