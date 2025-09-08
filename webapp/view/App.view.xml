@@ -1,16 +1,34 @@
+<!-- Declaración de la vista utilizando el tipo mvc:View. Se especifica el controlador asociado -->
 <mvc:View controllerName="clase3.controller.App"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:f="sap.f"
     height="100%">
+	<!-- Espacio de nombres principal para controles de SAPUI5 Mobile -->
+	<!-- Espacio de nombres para funcionalidades del modelo vista-controlador -->
+	<!-- Espacio de nombres para controles del layout flexible de SAP Fiori -->
+	<!-- Altura de la vista al 100% del contenedor -->
 
+	<!-- Componente App, contenedor principal que puede manejar navegación entre páginas -->
 	<App id="app">
+		
+		<!-- Sección donde se definen las páginas del App -->
 		<pages>
+			
+			<!-- Página individual con un título simple -->
 			<Page title="App">
+				
+				<!-- Contenido principal de la página -->
 				<content>
-					<VBox class="sapUiSmallMargin">
+					
+					<!-- VBox es un layout vertical que organiza los elementos en columna -->
+					<VBox class="sapUiSmallMargin"> <!-- Clase para añadir un pequeño margen -->
+						
+						<!-- Componente de texto que muestra una cadena traducida desde el archivo i18n -->
 						<Text text="{i18n>hello}" />
+					
 					</VBox>
+					
 				</content>
 			</Page>
 		</pages>
