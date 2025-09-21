@@ -1,31 +1,38 @@
 # yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+# Define el esquema para ayudar con validaciones y autocompletado del YAML
 
-specVersion: "3.1"
+specVersion: "3.1" # Especifica la versión del UI5 Tooling que se está utilizando
+
 metadata:
-  name: clase4
-type: application
+  name: clase4 # Nombre del proyecto UI5 (se puede usar en despliegues o builds)
+
+type: application # Tipo de proyecto: puede ser "application" o "library"
+
 server:
-  customMiddleware:
-    - name: fiori-tools-proxy
-      afterMiddleware: compression
+  customMiddleware: # Middleware personalizados para ejecutar en el servidor de desarrollo
+    - name: fiori-tools-proxy # Middleware para habilitar proxy hacia servicios externos (como OData)
+      afterMiddleware: compression # Define que este middleware se cargue después del de compresión
       configuration:
-        ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
-        ui5:
+        ignoreCertError: false # false = no se ignoran errores de certificados SSL (mejor para producción)
+        ui5: # Configuración para redirigir recursos estándar de UI5 desde CDN
           path:
-            - /resources
-            - /test-resources
-          url: https://ui5.sap.com
-        backend:
-          - path: /V2
-            url: https://services.odata.org
-    - name: fiori-tools-appreload
+            - /resources # Ruta base para recursos UI5
+            - /test-resources # Ruta base para recursos de pruebas
+          url: https://ui5.sap.com # URL del CDN de SAP para UI5
+
+        backend: # Define proxy hacia un backend (como OData)
+          - path: /V2 # Ruta en tu app que será mapeada al servicio OData
+            url: https://services.odata.org # URL del servicio OData de Northwind (v2)
+
+    - name: fiori-tools-appreload # Middleware para recargar la app automáticamente en el navegador (Live Reload)
       afterMiddleware: compression
       configuration:
-        port: 35729
-        path: webapp
-        delay: 300
-    - name: fiori-tools-preview
+        port: 35729 # Puerto que usa LiveReload para escuchar cambios
+        path: webapp # Carpeta que será observada para cambios
+        delay: 300 # Delay en milisegundos antes de recargar la app
+
+    - name: fiori-tools-preview # Middleware para previsualizar la app con un shell Fiori Launchpad simulado
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: clase4
-        ui5Theme: sap_horizon
+        component: clase4 # Nombre del componente UI5 (generalmente coincide con el namespace raíz)
+        ui5Theme: sap_horizon # Tema visual a usar en la preview (puede ser: sap_fiori_3, sap_horizon, etc.)
