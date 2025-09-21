@@ -76,6 +76,30 @@
             </Annotations>
 
             <Annotations Target="NorthwindModel.Product">
+                <!-- UI.HeaderInfo: Define la información que se muestra en el encabezado de la Object Page -->
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <!-- Nombre singular del tipo de entidad (por ejemplo, "Product") -->
+                        <PropertyValue Property="TypeName" String="{@i18n>tableTitleSingular}" />
+                        <!-- Nombre plural del tipo de entidad (por ejemplo, "Products") -->
+                        <PropertyValue Property="TypeNamePlural" String="{@i18n>tableTitlePlural}" />
+
+                        <!-- Título principal que se mostrará en el encabezado, ligado al campo ProductName -->
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="ProductName" />
+                            </Record>
+                        </PropertyValue>
+
+                        <!-- Descripción que se mostrará debajo del título, ligada al campo CategoryName de la entidad relacionada Category -->
+                        <PropertyValue Property="Description">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="Category/CategoryName" />
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
                 <Annotation Term="UI.SelectionFields">
                     <Collection>
                         <PropertyPath>ProductID</PropertyPath>
@@ -85,36 +109,83 @@
                     </Collection>
                 </Annotation>
 
-                <!-- Anotación que define las columnas que se mostrarán en la tabla (List Report) -->
                 <Annotation Term="UI.LineItem">
                     <Collection>
-                        <!-- Columna para mostrar el ProductID -->
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="ProductID" />
                         </Record>
-
-                        <!-- Columna para mostrar el nombre del producto -->
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="ProductName" />
                         </Record>
-
-                        <!-- Columna para mostrar el nombre de la categoría (CategoryName) de la entidad relacionada "Category" -->
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Label" String="{@i18n>category}" />
                             <PropertyValue Property="Value" Path="Category/CategoryName" />
                         </Record>
-
-                        <!-- Columna para mostrar el nombre de la compañía del proveedor (CompanyName) de la entidad relacionada "Supplier" -->
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Label" String="{@i18n>supplier}" />
                             <PropertyValue Property="Value" Path="Supplier/CompanyName" />
                         </Record>
-
-                        <!-- Columna para mostrar si el producto está descontinuado -->
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="Discontinued" />
                         </Record>
                     </Collection>
+                </Annotation>
+
+                <!-- Object Pages -->
+                <!-- Define las facetas (secciones) que se mostrarán en la Object Page -->
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <!-- Etiqueta que se muestra en la pestaña o sección -->
+                            <PropertyValue Property="Label" String="{@i18n>tableTitleSingular}" />
+                            <!-- Referencia al grupo de campos que se va a mostrar en esta faceta -->
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#tabCaseOverview" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                <!-- Define un grupo de campos calificado como "tabCaseOverview" -->
+                <Annotation Term="UI.FieldGroup" Qualifier="tabCaseOverview">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <!-- Campos que se mostrarán en el grupo dentro de la Object Page -->
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ProductID" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ProductName" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="SupplierID" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="CategoryID" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="QuantityPerUnit" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="UnitPrice" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="UnitsInStock" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="UnitsOnOrder" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ReorderLevel" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Discontinued" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Category/CategoryName" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
                 </Annotation>
             </Annotations>
         </Schema>
