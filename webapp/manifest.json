@@ -20,9 +20,7 @@
         "uri": "/V2/Northwind/Northwind.svc/",
         "type": "OData",
         "settings": {
-          "annotations": [
-            "annotation"
-          ],
+          "annotations": ["annotation"],
           "localUri": "localService/mainService/metadata.xml",
           "odataVersion": "2.0"
         }
@@ -127,7 +125,9 @@
               }
             },
             "tableSettings": {
-              "type": "ResponsiveTable"
+              "multiSelect": true,
+              "type": "GridTable",
+              "copy": false
             }
           }
         },

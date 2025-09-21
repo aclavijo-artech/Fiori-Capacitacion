@@ -21,41 +21,32 @@
                 <Annotation Term="Capabilities.SearchRestrictions">
                     <Record Type="Capabilities.SearchRestrictionsType">
                         <PropertyValue Property="Searchable" Bool="false" />
-                        <!-- Desactiva la búsqueda global/search para los productos -->
                     </Record>
                 </Annotation>
             </Annotations>
 
             <Annotations Target="NorthwindModel.Product/ProductID">
                 <Annotation Term="Common.Label" String="{@i18n>productoid}" />
-                <!-- Etiqueta traducible para ProductID -->
             </Annotations>
 
             <Annotations Target="NorthwindModel.Product/ProductName">
                 <Annotation Term="Common.Label" String="{@i18n>name}" />
-                <!-- Etiqueta traducible para ProductName -->
             </Annotations>
 
             <Annotations Target="NorthwindModel.Product/SupplierID">
                 <Annotation Term="Common.Label" String="{@i18n>supplier}" />
-                <!-- Etiqueta para SupplierID -->
                 <Annotation Term="Common.ValueListWithFixedValues" Bool="false" />
-                <!-- No se fija un valor único, puede cambiar -->
                 <Annotation Term="Common.ValueList">
                     <Record Type="Common.ValueListType">
                         <PropertyValue Property="CollectionPath" String="Suppliers" />
-                        <!-- Entidad Suppliers para dropdown / lista de valores -->
                         <PropertyValue Property="Parameters">
                             <Collection>
                                 <Record Type="Common.ValueListParameterInOut">
                                     <PropertyValue Property="LocalDataProperty" PropertyPath="SupplierID" />
-                                    <!-- Campo local usado -->
                                     <PropertyValue Property="ValueListProperty" String="SupplierID" />
-                                    <!-- Campo de Suppliers con que se vincula -->
                                 </Record>
                                 <Record Type="Common.ValueListParameterDisplayOnly">
                                     <PropertyValue Property="ValueListProperty" String="SupplierID" />
-                                    <!-- Solo para mostrar, no modificar -->
                                 </Record>
                             </Collection>
                         </PropertyValue>
@@ -65,19 +56,15 @@
 
             <Annotations Target="NorthwindModel.Product/CategoryID">
                 <Annotation Term="Common.Label" String="{@i18n>category}" />
-                <!-- Etiqueta para CategoryID -->
                 <Annotation Term="Common.ValueListWithFixedValues" Bool="true" />
-                <!-- Lista de valores fija para categoría -->
                 <Annotation Term="Common.ValueList">
                     <Record Type="Common.ValueListType">
                         <PropertyValue Property="CollectionPath" String="Categories" />
-                        <!-- Entidad Categories para dropdown -->
                         <PropertyValue Property="Parameters">
                             <Collection>
                                 <Record Type="Common.ValueListParameterInOut">
                                     <PropertyValue Property="LocalDataProperty" PropertyPath="CategoryID" />
                                     <PropertyValue Property="ValueListProperty" String="CategoryName" />
-                                    <!-- Mostrar nombre de categoría, no ID -->
                                 </Record>
                                 <Record Type="Common.ValueListParameterDisplayOnly">
                                     <PropertyValue Property="ValueListProperty" String="CategoryName" />
@@ -92,13 +79,41 @@
                 <Annotation Term="UI.SelectionFields">
                     <Collection>
                         <PropertyPath>ProductID</PropertyPath>
-                        <!-- Filtro para ID del producto -->
                         <PropertyPath>ProductName</PropertyPath>
-                        <!-- Filtro para nombre del producto -->
                         <PropertyPath>SupplierID</PropertyPath>
-                        <!-- Filtro con dropdown para proveedor -->
                         <PropertyPath>CategoryID</PropertyPath>
-                        <!-- Filtro con dropdown para categoría -->
+                    </Collection>
+                </Annotation>
+
+                <!-- Anotación que define las columnas que se mostrarán en la tabla (List Report) -->
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <!-- Columna para mostrar el ProductID -->
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductID" />
+                        </Record>
+
+                        <!-- Columna para mostrar el nombre del producto -->
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductName" />
+                        </Record>
+
+                        <!-- Columna para mostrar el nombre de la categoría (CategoryName) de la entidad relacionada "Category" -->
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>category}" />
+                            <PropertyValue Property="Value" Path="Category/CategoryName" />
+                        </Record>
+
+                        <!-- Columna para mostrar el nombre de la compañía del proveedor (CompanyName) de la entidad relacionada "Supplier" -->
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>supplier}" />
+                            <PropertyValue Property="Value" Path="Supplier/CompanyName" />
+                        </Record>
+
+                        <!-- Columna para mostrar si el producto está descontinuado -->
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Discontinued" />
+                        </Record>
                     </Collection>
                 </Annotation>
             </Annotations>
