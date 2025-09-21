@@ -1,27 +1,58 @@
-sap.ui.define([
-    "sap/ui/model/json/JSONModel",    // Modelo de datos en formato JSON
-], function (JSONModel) {
+sap.ui.define(
+  ["sap/ui/model/json/JSONModel", "sap/ui/Device"],
+  function (JSONModel, Device) {
     "use strict";
 
+    // Exporta un objeto con múltiples funciones para crear modelos
     return {
-        createTableModel: function () {
-            let oModel = [];
-            // Crea un arreglo vacío para almacenar productos
+      /**
+       * Crea un modelo JSON basado en las propiedades del dispositivo (móvil, tablet, desktop, etc.)
+       * Se usa para hacer que la UI se adapte automáticamente al tipo de dispositivo.
+       * @returns {sap.ui.model.json.JSONModel} El modelo de dispositivo.
+       */
+      createDeviceModel() {
+        let oModel = new JSONModel(Device);
+        oModel.setDefaultBindingMode("OneWay");
+        return oModel;
+      },
 
-            const refactor = (id, nombre, precio, stock) => {
-                // Función de utilidad que recibe datos y devuelve un objeto con propiedades
-                return { id, nombre, precio, stock };
-            }
+      /**
+       * Crea un modelo JSON con la información del perfil del usuario
+       * Este modelo usa binding bidireccional (TwoWay) para que los cambios en la vista afecten al modelo
+       * @returns {sap.ui.model.json.JSONModel} El modelo del perfil
+       */
+      createProfileModel() {
+        let oData = {
+          name: "Andrés",
+          lastName: "Clavijo",
+          birthDate: "22/08/2000",
+          email: "aclavijo@artech-consulting.com",
+          github: "https://github.com/aclavijo-artech",
+          company: "Artech",
+          role: "Fiori Developer",
+          photo: "https://avatars.githubusercontent.com/u/192107407?v=4",
+        };
 
-            // Agrega productos al arreglo oModel usando la función refactor
-            oModel.push(refactor(101, "Laptop", 1200, 5));
-            oModel.push(refactor(102, "Mouse", 25, 30));
-            oModel.push(refactor(103, "Teclado", 45, 20));
-            oModel.push(refactor(104, "Monitor", 300, 8));
-            oModel.push(refactor(105, "USB", 15, 100));
-            oModel.push(refactor(106, "Auriculares", 75, 15));
+        let oModel = new JSONModel(oData);
+        oModel.setDefaultBindingMode("TwoWay"); 
+        return oModel;
+      },
 
-            return new JSONModel(oModel); // Crea un modelo JSON con los datos
-        }
-    }
-})
+      /**
+       * Crea un modelo JSON con una lista de empresas
+       * @returns {sap.ui.model.json.JSONModel} El modelo de empresas
+       */
+      createCompaniesModel() {
+        let oData = {
+          company: [
+            { key: "Artech", name: "Artech", url: "https://artalk.tech/" },
+          ]
+        };
+
+        let oModel = new JSONModel(oData);
+        oModel.setDefaultBindingMode("TwoWay");
+        return oModel;
+      },
+    };
+  }
+);

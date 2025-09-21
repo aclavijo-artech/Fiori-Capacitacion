@@ -1,98 +1,192 @@
-<mvc:XMLView controllerName="ejercicio1.controller.App"
-    xmlns="sap.m"
-    xmlns:mvc="sap.ui.core.mvc">
-    <!-- Define una vista XML usando controles de la librería sap.m 
-         y especifica que está asociada al controlador "ejercicio1.controller.App" -->
+<mvc:View controllerName="ejercicio2.controller.App"
+    xmlns:layout="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:uxap="sap.uxap"
+    xmlns:f="sap.f"
+    xmlns="sap.m">
+    <!-- Vista principal con controlador 'ejercicio2.controller.App' -->
+    <App id="app">
+        <!-- Página principal sin cabecera (showHeader="false") -->
+        <Page id="page" showHeader="false">
+            <!-- Layout tipo ObjectPage (sap.uxap) para detalle enriquecido -->
+            <uxap:ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true">
 
-    <Shell>
-        <!-- Componente Shell: contenedor base de la aplicación -->
+                <!-- Título principal del ObjectPage -->
+                <!-- Nombre completo dinámico -->
+                <!-- Marca como favorito -->
+                <!-- Marca como marcado -->
+                <!-- Muestra los iconos de marcado -->
+                <!-- No marca cambios -->
+                <!-- No muestra selector de título -->
+                <!-- Fecha de nacimiento -->
+                <!-- Foto de perfil -->
+                <!-- Imagen circular -->
+                <!-- Título no siempre visible -->
+                <!-- Subtítulo no siempre visible -->
+                <!-- No mostrar placeholder -->
+                <uxap:headerTitle>
+                    <uxap:ObjectPageHeader id="headerForTest"
+                        objectTitle="{profile>/name} {profile>/lastName}"  
+                        markFavorite="true"                               
+                        markFlagged="true"                                
+                        showMarkers="true"                                
+                        markChanges="false"                               
+                        showTitleSelector="false"                         
+                        objectSubtitle="{profile>/birthDate}"            
+                        objectImageURI="{profile>/photo}"                
+                        objectImageShape="Circle"                          
+                        isObjectTitleAlwaysVisible="false"                
+                        isObjectSubtitleAlwaysVisible="false"             
+                        showPlaceholder="false">
+    
+                        <!-- Botones de acción en el header -->
+                        <uxap:actions>
 
-        <App>
-            <!-- Componente App: contenedor de navegación para páginas -->
+                            <!-- Botón editar con evento -->
+                            <uxap:ObjectPageHeaderActionButton icon="sap-icon://edit" 
+                                press=".onEditProfile"/>                    
+                        </uxap:actions>
+                    </uxap:ObjectPageHeader>
+                </uxap:headerTitle>
 
-            <pages>
-                <!-- Contenedor de las páginas dentro de la aplicación -->
+                <!-- Contenido del header debajo del título -->
+                <uxap:headerContent>
+                    <layout:VerticalLayout>
+                        <!-- Rol del usuario -->
+                        <Label text="{profile>/role}"/>
+                        
+                        <!-- Link de correo -->
+                        <Link text="{profile>/email}"                         
+                            href="mailto:{profile>/email}"/>
+                        <layout:HorizontalLayout>
 
-                <Page>
-                    <!-- Página principal -->
+                            <!-- Iconos de redes sociales con evento press -->
+                            <Image id="appImageGitHub" 
+                                height="30px" 
+                                width="30px"
+                                press=".onLinkImage"
+                                src="../assets/image/GitHub.jpeg"/>
+                            <Image id="appImageLinkedin"
+                                height="28px" 
+                                width="30px"
+                                press=".onLinkImage"
+                                src="../assets/image/Linkedin.png"/>
+                        </layout:HorizontalLayout>
+                    </layout:VerticalLayout>
 
-                    <headerContent>
-                        <!-- Contenido del encabezado de la página -->
+                    <layout:VerticalLayout>
+                        <!-- Etiqueta internacionalizada -->
+                        <Label text="{i18n>profileCompletion}"/>
 
-                        <Title text="{i18n>greeting}" class="appTitle"/>
-                        <!-- Título con texto localizado (clave "greeting") 
-                             y clase CSS "appTitle" (para aplicar estilos animados) -->
+                        <!-- Indicador de progreso al 100% -->
+                        <ProgressIndicator
+                                percentValue="100"
+                                displayValue="100%"
+                                showValue="true"
+                                state="Success"/>
+                    </layout:VerticalLayout>
+                </uxap:headerContent>
 
-                        <ToolbarSeparator />
-                        <!-- Separador visual -->
+                <!-- Secciones principales del ObjectPage -->
+                <uxap:sections>
 
-                        <ToolbarSpacer />
-                        <!-- Espaciador que empuja elementos hacia los extremos -->
+                    <!-- Sección "Sobre mí" -->
+                    <uxap:ObjectPageSection title="{i18n>aboutMe}">
 
-                        <ToolbarSeparator />
-                        <!-- Otro separador visual -->
+                        <uxap:subSections>
+                            <uxap:ObjectPageSubSection>
+                                
+                                <!-- Bloques de contenido dentro de la subsección -->
+                                <uxap:blocks>
 
-                        <Button text="{i18n>btnApp}" press=".onClick"/>
-                        <!-- Botón con texto localizado (clave "btnApp") 
-                             que al presionarse ejecuta el método "onClick" del controlador -->
-                    </headerContent> 
+                                    <!-- ScrollContainer para permitir scroll en contenido -->
+                                    <ScrollContainer height="100%" width="100%">
+                                        <f:GridContainer id="appGridContainerRouter" class="sapUiSmallMargin">
 
-                    <VBox>
-                        <!-- Contenedor vertical para organizar elementos en columnas -->
+                                            <!-- Configuración responsive del grid -->
+                                            <f:layout>
+                                                <f:GridContainerSettings rowSize="84px" columnSize="84px" gap="8px" />
+                                            </f:layout>
+                                            <f:layoutXS>
+                                                <f:GridContainerSettings rowSize="70px" columnSize="70px" gap="8px" />
+                                            </f:layoutXS>
 
-                        <Table items="{oModel>/}" class="appTable">
-                            <!-- Tabla enlazada al modelo "oModel" (arreglo de productos)
-                                 y con clase CSS "appTable" para personalizar estilos -->
+                                            <!-- Tile para experiencia de capacitación -->
+                                            <!-- Header internacionalizado -->
+                                            <!-- Subheader internacionalizado -->
+                                            <GenericTile
+                                                press=".goToTraining"
+                                                header="{i18n>genericTileHeader}"           
+                                                subheader="{i18n>genericTileSubHeader}">   
 
-                            <columns>
-                                <!-- Definición de las columnas de la tabla -->
+                                                <layoutData>
+                                                    <f:GridContainerItemLayoutData minRows="2" columns="2" />
+                                                </layoutData>
 
-                                <Column>
-                                    <Text text="{i18n>tableId}" />
-                                    <!-- Encabezado: ID del producto -->
-                                </Column>
+                                                <!-- Footer internacionalizado -->
+                                                <TileContent unit="Pescar" footer="{i18n>training}">
 
-                                <Column>
-                                    <Text text="{i18n>tableName}" />
-                                    <!-- Encabezado: Nombre del producto -->
-                                </Column>
+                                                     <!-- Icono del tile --> 
+                                                    <ImageContent src="sap-icon://chalkboard" />
+                                                </TileContent>
+                                            </GenericTile>
+                                        </f:GridContainer>
+                                    </ScrollContainer>
+                                </uxap:blocks>
 
-                                <Column>
-                                    <Text text="{i18n>tablePrice}" />
-                                    <!-- Encabezado: Precio -->
-                                </Column>
+                                <uxap:blocks>
+                                    <ScrollContainer height="100%" width="100%">
+                                        <f:GridContainer id="appGridContainerRouterParametera" class="sapUiSmallMargin">
+                                            <f:layout>
+                                                <f:GridContainerSettings rowSize="84px" columnSize="84px" gap="8px" />
+                                            </f:layout>
+                                            <f:layoutXS>
+                                                <f:GridContainerSettings rowSize="70px" columnSize="70px" gap="8px" />
+                                            </f:layoutXS>
+                                            
+                                            <!-- TileContent para mostrar descripción de perfil -->
+                                             <!-- Texto internacionalizado -->
+                                            <TileContent>
+                                                <Text width="200px"
+                                                    text="{i18n>profileDescription}"           
+                                                    class="sapUiSmallMargin"/>
+                                            </TileContent>
+                                        </f:GridContainer>
+                                    </ScrollContainer>
+                                </uxap:blocks>
 
-                                <Column>
-                                    <Text text="{i18n>tableStock}" />
-                                    <!-- Encabezado: Stock disponible -->
-                                </Column>
-                            </columns>
+                                <uxap:blocks>
+                                    <ScrollContainer height="100%" width="100%">
+                                        <f:GridContainer id="appGridContainerRouterParameter" class="sapUiSmallMargin">
+                                            <f:layout>
+                                                <f:GridContainerSettings rowSize="84px" columnSize="84px" gap="8px" />
+                                            </f:layout>
+                                            <f:layoutXS>
+                                                <f:GridContainerSettings rowSize="70px" columnSize="70px" gap="8px" />
+                                            </f:layoutXS>
 
-                            <items>
-                                <!-- Definición de cómo se mostrará cada fila -->
+                                            <!-- Tile para experiencia laboral -->
+                                            <GenericTile
+                                                press=".goToJob"
+                                                header="{i18n>experience}">
+                                                <layoutData>
+                                                    <f:GridContainerItemLayoutData minRows="2" columns="2" />
+                                                </layoutData>
 
-                                <ColumnListItem>
-                                    <cells>
-                                        <!-- Celdas correspondientes a cada columna -->
+                                                <!-- Footer fijo -->
+                                                <TileContent footer="{i18n>companies}">            
+                                                    <ImageContent src="sap-icon://people-connected" />
+                                                </TileContent>
+                                            </GenericTile>
+                                        </f:GridContainer>
+                                    </ScrollContainer>
+                                </uxap:blocks>
 
-                                        <Text text="{oModel>id}" />
-                                        <!-- Muestra el ID del producto -->
-
-                                        <Text text="{oModel>nombre}" />
-                                        <!-- Muestra el nombre del producto -->
-
-                                        <Text text="{oModel>precio}" />
-                                        <!-- Muestra el precio -->
-
-                                        <Text text="{oModel>stock}" />
-                                        <!-- Muestra el stock disponible -->
-                                    </cells>
-                                </ColumnListItem>
-                            </items>
-                        </Table>
-                    </VBox>    
-                </Page>
-            </pages>
-        </App>
-    </Shell>
-</mvc:XMLView>
+                            </uxap:ObjectPageSubSection>
+                        </uxap:subSections>
+                    </uxap:ObjectPageSection>
+                </uxap:sections>
+            </uxap:ObjectPageLayout>
+        </Page>
+    </App>
+</mvc:View>

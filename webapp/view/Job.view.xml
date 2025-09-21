@@ -1,0 +1,16 @@
+<mvc:View controllerName="ejercicio2.controller.Job"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+    <!-- Página sin encabezado, con clase personalizada para aplicar estilos -->
+    <Page showHeader="false" class="pageContainer">
+
+        <!-- Panel que actúa como contenedor visual -->
+        <Panel id="jobText" 
+            expandable="false"
+            class="sapUiResponsiveMargin">
+
+            <!-- Contenedor VBox donde se incrustará el iframe desde el controlador -->
+            <VBox id="jobIframe" />
+        </Panel>
+    </Page>
+</mvc:View>

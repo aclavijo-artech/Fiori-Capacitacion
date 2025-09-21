@@ -1,0 +1,31 @@
+<core:FragmentDefinition 
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form">
+
+    <Dialog showHeader="false">
+        <!-- Contenedor con padding para espacio interno -->
+        <VBox class="sapUiSmallPadding">
+            
+            <!-- Select (dropdown) con binding de items -->
+            <Select id="selectCompany"
+                width="100%"
+                items="{
+                    path: 'companies>/company'
+                }">
+                <core:Item key="{companies>key}" text="{companies>name}" />
+            </Select>
+
+            <!-- Toolbar alineando el botón a la derecha -->
+            <Toolbar>
+                <ToolbarSpacer />
+                <Button text="{i18n>goToCompany}"
+                    press=".goToSelectedJob" 
+                    type="Emphasized"/>
+                <Button text="{i18n>cancel}"
+                    press=".goToSelectedJob"
+                    type="Reject" />
+            </Toolbar>
+        </VBox>
+    </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,75 @@
+<core:FragmentDefinition 
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form">
+
+    <!-- Diálogo principal que contiene el formulario de edición del perfil -->
+    <Dialog>
+
+        <!-- Campo: Nombre (solo lectura) -->
+        <VBox>
+            <Input value="{profile>/name}" 
+                   editable="false"
+                   width="50%"/>
+        </VBox>
+
+        <!-- Campo: Apellido (solo lectura) -->
+        <VBox>
+            <Input value="{profile>/lastName}" 
+                   editable="false"
+                   width="50%"/>
+        </VBox>
+
+        <!-- Campo: Fecha de nacimiento (editable) -->
+        <VBox>
+            <Input value="{profile>/birthDate}"
+                   width="50%"/>
+        </VBox>
+
+        <!-- Campo: Email (editable, tipo email) -->
+        <VBox>
+            <Input value="{profile>/email}" 
+                   type="Email"
+                   width="50%"/>
+        </VBox>
+
+        <!-- Campo: GitHub (formateado para mostrar solo el nombre de usuario/repositorio) -->
+        <VBox>
+            <Input value="{ path: 'profile>/github', formatter: '.formatter.formatGitHubName' }"
+                   width="50%"/>
+        </VBox>
+
+        <!-- Campo: Empresa (editable) -->
+        <VBox>
+            <Input value="{profile>/company}"
+                   width="50%"/>
+        </VBox>
+
+        <!-- Campo: Rol (editable) -->
+        <VBox>
+            <Input value="{profile>/role}"
+                   width="50%"/>
+        </VBox>
+
+        <!-- Pie del diálogo con botones de acción -->
+        <footer>
+            <Toolbar>
+
+                <!-- Espaciador para alinear los botones a la derecha -->
+                <ToolbarSpacer/>
+
+                <!-- Botón Guardar (acción: guardar datos del perfil) -->
+                <Button text="{i18n>save}"
+                        type="Emphasized" 
+                        press=".onEditProfileData"/>
+
+                <!-- Botón Cancelar (acción: cerrar el diálogo sin guardar) -->
+                <Button text="{i18n>cancel}"
+                        type="Reject" 
+                        press=".onEditProfileData"/>
+
+            </Toolbar>
+        </footer>
+
+    </Dialog>
+</core:FragmentDefinition>
