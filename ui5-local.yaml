@@ -1,56 +1,48 @@
 # yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
-# Define el esquema para validación/autocompletado de este archivo en editores compatibles como VS Code
 
-specVersion: "3.1" # Versión del UI5 Tooling a usar (estable y compatible con proyectos Fiori Elements)
-
+specVersion: "3.1"
 metadata:
-  name: clase4 # Nombre interno del proyecto (usado en build, deploy, y en el componente)
-
-type: application # Tipo de proyecto: "application" indica que es una app UI5, no una librería
-
+  name: clase4
+type: application
 framework:
-  name: SAPUI5 # Framework base del proyecto (SAPUI5 o OpenUI5)
-  version: 1.129.0 # Versión del framework (debe ser compatible con las librerías usadas)
-  libraries: # Librerías que serán incluidas desde el CDN o entorno local
-    - name: sap.m # Controles móviles/responsivos
-    - name: sap.ui.core # Núcleo de UI5 (modelos, eventos, componentes)
-    - name: sap.ushell # Shell services (para integración con Launchpad o Work Zone)
-    - name: sap.f # Flexible Column Layout y layouts modernos
-    - name: sap.ui.comp # Controles avanzados (SmartFilter, ValueHelp, etc.)
-    - name: sap.ui.generic.app # Necesaria para Fiori Elements
-    - name: sap.suite.ui.generic.template # Plantillas para apps Fiori Elements
-    - name: themelib_sap_horizon # Tema visual SAP Horizon (moderno y responsive)
-
+  name: SAPUI5
+  version: 1.129.0
+  libraries:
+    - name: sap.m
+    - name: sap.ui.core
+    - name: sap.ushell
+    - name: sap.f
+    - name: sap.ui.comp
+    - name: sap.ui.generic.app
+    - name: sap.suite.ui.generic.template
+    - name: themelib_sap_horizon
 server:
-  customMiddleware: # Middlewares para desarrollo local
-    - name: fiori-tools-appreload # Habilita live reload (recarga automática al guardar cambios)
+  customMiddleware:
+    - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
-        port: 35729 # Puerto interno para recarga
-        path: webapp # Ruta observada para detectar cambios
-        delay: 300 # Tiempo en ms antes de recargar
-
-    - name: fiori-tools-preview # Middleware que genera una vista previa con Fiori Shell
+        port: 35729
+        path: webapp
+        delay: 300
+    - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: clase4 # Nombre del componente raíz definido en manifest.json
-        ui5Theme: sap_horizon # Tema visual para la preview
-
-    - name: fiori-tools-proxy # Permite usar servicios remotos como si fueran locales (proxy)
+        component: clase4
+        ui5Theme: sap_horizon
+    - name: fiori-tools-proxy
       afterMiddleware: compression
       configuration:
-        ignoreCertError: false # Si se pone en true, se aceptan certificados inválidos (no recomendado)
+        ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
         backend:
-          - path: /V2 # Ruta base usada en la app que será redirigida al backend
-            url: https://services.odata.org # Servicio OData remoto (Northwind)
-
-    - name: sap-fe-mockserver # Middleware para simular un backend local (mockserver)
+          - url: https://services.odata.org
+            path: /V2
+    - name: sap-fe-mockserver
       beforeMiddleware: csp
       configuration:
-        mountPath: / # Ruta raíz donde se monta el mockserver
+        mountPath: /
         services:
-          - urlPath: /V2/Northwind/Northwind.svc # Ruta que simula el endpoint del servicio OData
-            metadataPath: ./webapp/localService/metadata.xml # Metadata OData (estructura de entidades)
-            mockdataPath: ./webapp/localService/data # Carpeta donde están los datos mock (JSON)
-            generateMockData: true # Genera automáticamente datos si no existen
-        annotations: [] # Aquí podés agregar rutas a archivos de anotaciones locales si las usás
+          - urlPath: /V2/Northwind/Northwind.svc
+            metadataPath: ./webapp/localService/mainService/metadata.xml
+            mockdataPath: ./webapp/localService/mainService/data
+            generateMockData: true
+        annotations: []

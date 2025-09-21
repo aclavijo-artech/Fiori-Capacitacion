@@ -1,34 +1,107 @@
-<!--
-  Este archivo define anotaciones OData (EDMX) que extienden el metadata original del servicio Northwind.
-  Las anotaciones permiten personalizar la visualización y comportamiento en aplicaciones Fiori Elements.
--->
-
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />
+    </edmx:Reference>
+    <edmx:Reference Uri="/V2/Northwind/Northwind.svc/$metadata">
+        <edmx:Include Namespace="NorthwindModel" />
+        <edmx:Include Namespace="ODataWeb.Northwind.Model" />
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <Annotations Target="ODataWeb.Northwind.Model.NorthwindEntities/Products">
+                <Annotation Term="Capabilities.SearchRestrictions">
+                    <Record Type="Capabilities.SearchRestrictionsType">
+                        <PropertyValue Property="Searchable" Bool="false" />
+                        <!-- Desactiva la búsqueda global/search para los productos -->
+                    </Record>
+                </Annotation>
+            </Annotations>
 
-  <!-- Importa vocabulario común de SAP (etiquetas, definiciones generales) -->
-  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
-    <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
-  </edmx:Reference>
+            <Annotations Target="NorthwindModel.Product/ProductID">
+                <Annotation Term="Common.Label" String="{@i18n>productoid}" />
+                <!-- Etiqueta traducible para ProductID -->
+            </Annotations>
 
-  <!-- Importa el vocabulario de UI para configurar vistas, encabezados, filtros, etc. -->
-  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
-    <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
-  </edmx:Reference>
+            <Annotations Target="NorthwindModel.Product/ProductName">
+                <Annotation Term="Common.Label" String="{@i18n>name}" />
+                <!-- Etiqueta traducible para ProductName -->
+            </Annotations>
 
-  <!-- Importa vocabulario relacionado a información de contacto y comunicación -->
-  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
-    <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
-  </edmx:Reference>
+            <Annotations Target="NorthwindModel.Product/SupplierID">
+                <Annotation Term="Common.Label" String="{@i18n>supplier}" />
+                <!-- Etiqueta para SupplierID -->
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="false" />
+                <!-- No se fija un valor único, puede cambiar -->
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="Suppliers" />
+                        <!-- Entidad Suppliers para dropdown / lista de valores -->
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SupplierID" />
+                                    <!-- Campo local usado -->
+                                    <PropertyValue Property="ValueListProperty" String="SupplierID" />
+                                    <!-- Campo de Suppliers con que se vincula -->
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SupplierID" />
+                                    <!-- Solo para mostrar, no modificar -->
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
 
-  <!-- Referencia al metadata original del servicio OData de Northwind -->
-  <edmx:Reference Uri="/V2/Northwind/Northwind.svc/$metadata">
-    <edmx:Include Namespace="NorthwindModel"/>
-    <edmx:Include Namespace="ODataWeb.Northwind.Model"/>
-  </edmx:Reference>
+            <Annotations Target="NorthwindModel.Product/CategoryID">
+                <Annotation Term="Common.Label" String="{@i18n>category}" />
+                <!-- Etiqueta para CategoryID -->
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true" />
+                <!-- Lista de valores fija para categoría -->
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="Categories" />
+                        <!-- Entidad Categories para dropdown -->
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CategoryID" />
+                                    <PropertyValue Property="ValueListProperty" String="CategoryName" />
+                                    <!-- Mostrar nombre de categoría, no ID -->
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CategoryName" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
 
-  <!-- Sección donde se definen las anotaciones personalizadas -->
-  <edmx:DataServices>
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">      
-    </Schema>
-  </edmx:DataServices>
+            <Annotations Target="NorthwindModel.Product">
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>ProductID</PropertyPath>
+                        <!-- Filtro para ID del producto -->
+                        <PropertyPath>ProductName</PropertyPath>
+                        <!-- Filtro para nombre del producto -->
+                        <PropertyPath>SupplierID</PropertyPath>
+                        <!-- Filtro con dropdown para proveedor -->
+                        <PropertyPath>CategoryID</PropertyPath>
+                        <!-- Filtro con dropdown para categoría -->
+                    </Collection>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
 </edmx:Edmx>

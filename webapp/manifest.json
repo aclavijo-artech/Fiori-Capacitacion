@@ -13,7 +13,7 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
       "version": "1.16.1",
-      "toolsId": "828174eb-1f1a-4b2e-833a-0030755c4db1"
+      "toolsId": "ad15fbb0-ac3c-477f-85d9-29c46392e3de"
     },
     "dataSources": {
       "mainService": {
@@ -23,7 +23,7 @@
           "annotations": [
             "annotation"
           ],
-          "localUri": "localService/metadata.xml",
+          "localUri": "localService/mainService/metadata.xml",
           "odataVersion": "2.0"
         }
       },
@@ -55,7 +55,7 @@
   "sap.ui5": {
     "flexEnabled": true,
     "dependencies": {
-      "minUI5Version": "1.139.0",
+      "minUI5Version": "1.140.0",
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},

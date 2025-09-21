@@ -1,52 +1,41 @@
 # yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
-# Define el esquema para validación y autocompletado del YAML (usado por VSCode o extensiones compatibles)
 
-specVersion: "3.1" # Versión del UI5 Tooling (la 3.1 es estable y compatible con Fiori Elements)
-
+specVersion: "3.1"
 metadata:
-  name: clase4 # Nombre del proyecto (usado en previews, builds y despliegues)
-
-type: application # Tipo de proyecto UI5: puede ser "application" o "library"
-
+  name: clase4
+type: application
 server:
-  customMiddleware: # Middlewares personalizados que se ejecutan cuando levantas el servidor local
-    - name: fiori-tools-proxy # Middleware para hacer proxy a recursos remotos (UI5 + backend)
-      afterMiddleware: compression # Se ejecuta después del middleware de compresión
-      configuration:
-        ignoreCertError: false # Si se pone en true, se ignoran errores de certificados (no recomendado en prod)
-        ui5:
-          path:
-            - /resources # Ruta local que se mapea al CDN de UI5
-            - /test-resources # Ruta para recursos de prueba
-          url: https://ui5.sap.com # CDN oficial de UI5 para recursos compartidos
-
-        backend:
-          - path: /V2 # Ruta base usada en la app que será redirigida al backend
-            url: https://services.odata.org # Servicio OData de ejemplo (Northwind)
-
-    - name: fiori-tools-appreload # Middleware que habilita live reload (recarga automática al guardar cambios)
+  customMiddleware:
+    - name: fiori-tools-proxy
       afterMiddleware: compression
       configuration:
-        port: 35729 # Puerto usado internamente por LiveReload
-        path: webapp # Carpeta observada para cambios (usualmente donde está tu app)
-        delay: 300 # Espera de 300ms antes de recargar
-
-    - name: fiori-tools-preview # Middleware que genera una vista previa con Shell de Fiori
+        ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        ui5:
+          path:
+            - /resources
+            - /test-resources
+          url: https://ui5.sap.com
+        backend:
+          - url: https://services.odata.org
+            path: /V2
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
+    - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: clase4 # Nombre del componente raíz de tu app
-        ui5Theme: sap_horizon # Tema visual usado en la preview (puede cambiar a sap_fiori_3, etc.)
-
-    - name: sap-fe-mockserver # Middleware para levantar un mock server local (simula el backend)
-      beforeMiddleware: csp # Se ejecuta antes del middleware de Content-Security-Policy
+        component: clase4
+        ui5Theme: sap_horizon
+    - name: sap-fe-mockserver
+      beforeMiddleware: csp
       configuration:
-        mountPath: / # Punto de montaje para los mocks
+        mountPath: /
         services:
-          - urlPath: /V2/Northwind/Northwind.svc # Ruta que simula el endpoint del servicio OData
-            metadataPath: ./webapp/localService/metadata.xml # Ruta local al archivo de metadata OData
-            mockdataPath: ./webapp/localService/data # Carpeta con los datos mock (JSON)
-            generateMockData: true # Si es true, genera automáticamente datos si no existen
-
-        annotations:
-          - localPath: ./webapp/annotations/annotation.xml # Ruta local del archivo de anotaciones
-            urlPath: annotations/annotation.xml # Ruta accesible en la app para consumir las anotaciones
+          - urlPath: /V2/Northwind/Northwind.svc
+            metadataPath: ./webapp/localService/mainService/metadata.xml
+            mockdataPath: ./webapp/localService/mainService/data
+            generateMockData: true
+        annotations: []
