@@ -27,6 +27,10 @@ Este file contiene los materiales y ejercicios prácticos correspondientes a las
     - [OASIS OData Vocabularies - Vocabularios estándar para anotaciones OData](https://github.com/oasis-tcs/odata-vocabularies)
     - [SAP OData Vocabularies - Vocabularios SAP para anotaciones semánticas en OData](https://github.com/SAP/odata-vocabularies)
     - [Documentación SAPUI5 sobre SAP Fiori Elements - Guía oficial y ejemplos](https://github.com/SAP-docs/sapui5/tree/main/docs/06_SAP_Fiori_Elements)
+    - [Annotation Common](https://sap.github.io/odata-vocabularies/vocabularies/Common.html)
+    - [Annotation UI](https://sap.github.io/odata-vocabularies/vocabularies/UI.html)
+    - [OData Site](https://www.odata.org/)
+    - [SAP Business Technology Platform (SAP BTP)](https://account.hana.ondemand.com/#/home/welcome)
 
 ## Ejercicio 
 
@@ -60,3 +64,12 @@ Este file contiene los materiales y ejercicios prácticos correspondientes a las
         > - Deberá tener una vista de detalle para cada ítem, donde se muestre el detalle completo del elemento seleccionado.
     - Incluir un botón custom con funcionalidad propia:
         > - Colocar un controller custom para manejar esa funcionalidad.
+
+- **Clase 5:**
+    - Deberán crear una aplicación Fiori o reutilizar una ya creada y hacerle deploy en Cloud Foundry, tal como se hizo en clase.
+    - La aplicación debe incluir lo siguiente:
+        > - Usar el OData de NorthWind, pero **no conectarlo directamente**, sino hacerlo mediante **Destination** configurado en Cloud Foundry.
+        > - Colocar la aplicación en **SAP Work Zone**.
+        > - En el Tile que representa la aplicación en Work Zone, debe aparecer el texto:
+            > - `<nombre> - Ejercicio 5`
+            > - Ejemplo: `AndresClavijo - Ejercicio5`

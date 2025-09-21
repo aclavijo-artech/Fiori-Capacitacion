@@ -55,7 +55,7 @@ En este curso exploraremos juntos el desarrollo de aplicaciones Fiori, aplicando
     - Anotaciones
     - Crear Modelo y Vista desde CDS View
 
-    ### ⏳ CLASE 5 – SAP BTP, roles y despliegue con MTA
+    ### ✅ CLASE 5 – SAP BTP, roles y despliegue con MTA
 
     - Continuación de Fiori Elements (Extensiones y adaptaciones de vista/controlador)
     - ¿Qué es SAP BTP?
@@ -113,6 +113,7 @@ En este curso exploraremos juntos el desarrollo de aplicaciones Fiori, aplicando
     - [2.5-Add_And_Use_Global_Model_JSONModel](../../tree/2.5-Add_And_Use_Global_Model_JSONModel)  
     - [2.6-Fragments](../../tree/2.6-Fragments)  
     - [2.7-Formatter](../../tree/2.7-Formatter)
+    - [2.0-Ejercicio](../../tree/2.0-Ejercicio)
 
 💡 **Tip:**  
 Cuando bajes el proyecto, puedes cambiar de rama con el siguiente comando:  
