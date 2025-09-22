@@ -1,0 +1,33 @@
+<core:FragmentDefinition xmlns="sap.m" 
+    xmlns:u="sap.ui.unified" 
+    xmlns:core="sap.ui.core">
+    
+    <!-- Diálogo modal que se abrirá al llamar desde el controlador -->
+    <Dialog id="testFragDialog" 
+        draggable="true"           
+        title="{i18n>titleUpload}"  
+        resizable="false"           
+        contentWidth="400px"       
+        contentHeight="100px">      
+        <!-- Permite mover el diálogo arrastrándolo -->
+        <!-- Título dinámico desde archivo i18n -->
+        <!-- No permite cambiar tamaño -->
+        <!-- Ancho fijo del diálogo -->
+        <!-- Alto fijo del diálogo -->
+
+        <content>
+            <!-- Contenedor para cabecera con un botón -->
+            <HeaderContainer id="testFragHeaderContainer">
+                <Button id="testFragButton" 
+                    text="Salir"     
+                    press=".onClose"/>    
+            </HeaderContainer>
+            <!-- Texto del botón -->
+            <!-- Evento press que llama al método onClose del controlador -->
+
+            <!-- Texto simple dentro del diálogo -->
+            <Text id="testFragText" 
+                text="hello"/>
+        </content>
+    </Dialog>
+</core:FragmentDefinition>

@@ -76,22 +76,15 @@
             </Annotations>
 
             <Annotations Target="NorthwindModel.Product">
-                <!-- UI.HeaderInfo: Define la información que se muestra en el encabezado de la Object Page -->
                 <Annotation Term="UI.HeaderInfo">
                     <Record Type="UI.HeaderInfoType">
-                        <!-- Nombre singular del tipo de entidad (por ejemplo, "Product") -->
                         <PropertyValue Property="TypeName" String="{@i18n>tableTitleSingular}" />
-                        <!-- Nombre plural del tipo de entidad (por ejemplo, "Products") -->
                         <PropertyValue Property="TypeNamePlural" String="{@i18n>tableTitlePlural}" />
-
-                        <!-- Título principal que se mostrará en el encabezado, ligado al campo ProductName -->
                         <PropertyValue Property="Title">
                             <Record Type="UI.DataField">
                                 <PropertyValue Property="Value" Path="ProductName" />
                             </Record>
                         </PropertyValue>
-
-                        <!-- Descripción que se mostrará debajo del título, ligada al campo CategoryName de la entidad relacionada Category -->
                         <PropertyValue Property="Description">
                             <Record Type="UI.DataField">
                                 <PropertyValue Property="Value" Path="Category/CategoryName" />
@@ -131,25 +124,19 @@
                     </Collection>
                 </Annotation>
 
-                <!-- Object Pages -->
-                <!-- Define las facetas (secciones) que se mostrarán en la Object Page -->
                 <Annotation Term="UI.Facets">
                     <Collection>
                         <Record Type="UI.ReferenceFacet">
-                            <!-- Etiqueta que se muestra en la pestaña o sección -->
                             <PropertyValue Property="Label" String="{@i18n>tableTitleSingular}" />
-                            <!-- Referencia al grupo de campos que se va a mostrar en esta faceta -->
                             <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#tabCaseOverview" />
                         </Record>
                     </Collection>
                 </Annotation>
 
-                <!-- Define un grupo de campos calificado como "tabCaseOverview" -->
                 <Annotation Term="UI.FieldGroup" Qualifier="tabCaseOverview">
                     <Record Type="UI.FieldGroupType">
                         <PropertyValue Property="Data">
                             <Collection>
-                                <!-- Campos que se mostrarán en el grupo dentro de la Object Page -->
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="ProductID" />
                                 </Record>

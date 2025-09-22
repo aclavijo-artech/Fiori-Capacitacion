@@ -99,6 +99,28 @@
       "config": {},
       "routes": [],
       "targets": {}
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.suite.ui.generic.template.ListReport.view.ListReport": {
+            "controllerName": "clase4.ext.controller.ListReportExt",
+            "sap.ui.generic.app": {
+              "Product": {
+                "EntitySet": "Products",
+                "Actions": {
+                  "IdEdit": {
+                    "id": "IdButton",
+                    "text": "{i18n>buttonUpload}",
+                    "press": ".onOpenButton",
+                    "requiresSelection": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "sap.ui.generic.app": {
@@ -107,7 +129,11 @@
       "forceGlobalRefresh": false,
       "objectPageHeaderType": "Dynamic",
       "considerAnalyticalParameters": true,
-      "showDraftToggle": false
+      "showDraftToggle": false,
+      "flexibleColumnLayout": {
+        "defaultTwoColumnLayoutType": "TwoColumnsBeginExpanded",
+        "defaultThreeColumnLayoutType": "ThreeColumnsEndExpanded"
+      }
     },
     "pages": {
       "ListReport|Products": {
