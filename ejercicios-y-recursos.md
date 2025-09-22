@@ -39,9 +39,9 @@ Este file contiene los materiales y ejercicios prácticos correspondientes a las
 
 - **Clase 2:**
     - Crear una aplicación UI5 sin utilizar plantilla.
-        - La aplicación debe contener:
-            - Un campo de entrada (input) donde se le pida al usuario que ingrese su nombre.
-            - Un botón que, al hacer clic, muestre el nombre ingresado por el usuario.
+        > - La aplicación debe contener:
+            > - Un campo de entrada (input) donde se le pida al usuario que ingrese su nombre.
+            > - Un botón que, al hacer clic, muestre el nombre ingresado por el usuario.
 
 - **Clase 3:**
     - Deberán crear una aplicación UI5 utilizando plantilla, tal como lo hicimos en clase.
