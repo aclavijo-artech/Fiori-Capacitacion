@@ -1,22 +1,45 @@
+# Indica al editor (como VSCode) la ubicación del esquema JSON para validación y autocompletado
+# Este schema es oficial de SAP para archivos de configuración UI5 Tooling
+# https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
 # yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
 
+# Versión del esquema UI5 Tooling usado para esta configuración
 specVersion: "3.1"
+
 metadata:
+  # Nombre único de la aplicación o proyecto. Se usa para identificación interna
   name: com.andres.clase7
+
+# Tipo de artefacto. En este caso es una aplicación UI5 (Fiori)
 type: application
+
 resources:
   configuration:
+    # Codificación usada para leer archivos de propiedades (.properties), aquí UTF-8
     propertiesFileSourceEncoding: UTF-8
+
 builder:
   resources:
     excludes:
+      # Carpeta 'test' excluida de la compilación para no empaquetar tests en el build final
       - /test/**
+      # Carpeta 'localService' excluida para no incluir servicios mock o locales en producción
       - /localService/**
+
   customTasks:
-    - name: ui5-task-zipper
+    # Definición de tareas personalizadas para el proceso de build
+    - name: ui5-task-zipper  # Tarea que empaqueta la aplicación en un archivo ZIP para optimizar despliegues
+
+      # Se ejecuta después de la tarea 'generateCachebusterInfo' (que agrega info para control de caché)
       afterTask: generateCachebusterInfo
+
       configuration:
+        # Nombre del archivo ZIP que se generará (usado en despliegues Cloud Foundry / HTML5 Repo)
         archiveName: comandresclase7
+
+        # Define que las rutas dentro del zip deben ser relativas
         relativePaths: true
+
+        # Archivos adicionales que se incluyen dentro del zip (importante para rutas de configuración y seguridad)
         additionalFiles:
-          - xs-app.json
+          - xs-app.json  # Archivo de configuración de rutas y autenticación (proxy)
