@@ -67,7 +67,7 @@ En este curso exploraremos juntos el desarrollo de aplicaciones Fiori, aplicando
         - Archivos: `xs-app.json`, `ui5-deploy.yaml`
     - Build y deploy de una app UI5 en el Launchpad BTP
 
-    ### ⏳ CLASE 6 – Automatización: Build y CI/CD
+    ### ✅ CLASE 6 – Automatización: Build y CI/CD
 
     - **Build Automation**:
         - `ui5 build`, `mbt build`
@@ -77,7 +77,7 @@ En este curso exploraremos juntos el desarrollo de aplicaciones Fiori, aplicando
         - SAP Continuous Integration and Delivery
         - Configurar un pipeline para apps UI5
 
-    ### ⏳ CLASE 7 – Testing UI5 
+    ### ❌ CLASE 7 – Testing UI5 
 
     - Testing con UI5:
         - QUnit (unit tests): controllers, formatters
@@ -114,6 +114,19 @@ En este curso exploraremos juntos el desarrollo de aplicaciones Fiori, aplicando
     - [2.6-Fragments](../../tree/2.6-Fragments)  
     - [2.7-Formatter](../../tree/2.7-Formatter)
     - [2.0-Ejercicio](../../tree/2.0-Ejercicio)
+
+- **[Clase 4](#-clase-4--fiori-elements-y-anotaciones)**
+    - [3.0-List_Report](../../tree/3.0-List_Report)  
+    - [3.1-Filters](../../tree/3.1-Filters)  
+    - [3.2-Tables](../../tree/3.2-Tables)  
+    - [3.3-Object_Pages](../../tree/3.3-Object_Pages)  
+    - [3.4-Controller_Extension](../../tree/3.4-Controller_Extension)  
+    - [3.0-Ejercicio](../../tree/3.0-Ejercicio)
+
+- **[Clase 5](#-clase-5--sap-btp-roles-y-despliegue-con-mta)**
+    - [4.0-MTA](../../tree/4.0-MTA)  
+    - [4.1-XS_App/Security](../../tree/4.1-XS_App/Security)  
+    - [4.2-UI5_Deploy](../../tree/4.2-UI5_Deploy)
 
 💡 **Tip:**  
 Cuando bajes el proyecto, puedes cambiar de rama con el siguiente comando:  
