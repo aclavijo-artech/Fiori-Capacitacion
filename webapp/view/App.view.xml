@@ -1,0 +1,9 @@
+<mvc:View controllerName="com.andres.clase7.controller.App"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <App id="app">
+        <Page id="page" title="{i18n>title}">
+            <Text text="Hello Deploy"/>
+        </Page>
+    </App>
+</mvc:View>
