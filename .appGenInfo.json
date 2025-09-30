@@ -1,0 +1,24 @@
+{
+  "generationParameters": {
+    "generationDate": "Tue Sep 30 2025 18:39:15 GMT+0000 (Coordinated Universal Time)",
+    "generatorPlatform": "SAP Business Application Studio",
+    "serviceType": "SAP System (ABAP On-Premise)",
+    "metadataFilename": "",
+    "serviceUrl": "https://99fc57f7trial-proyecto-final-api-srv.cfapps.us10-001.hana.ondemand.com/odata/v4/api/",
+    "appName": "tpcurso",
+    "appTitle": "TP del curso de Fiori",
+    "appDescription": "Es el TP del curso",
+    "appNamespace": "",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.140.0",
+    "enableCodeAssist": false,
+    "enableEslint": false,
+    "enableTypeScript": false,
+    "showMockDataInfo": true,
+    "generatorVersion": "1.19.0",
+    "template": "Basic V4",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [],
+    "launchText": "To launch the generated application, run the following from the generated application root folder:\n\n```\n    npm start\n```"
+  }
+}

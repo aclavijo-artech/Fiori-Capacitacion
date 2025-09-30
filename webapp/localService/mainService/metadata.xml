@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
+        <edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="API" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotation Term="Core.Links">
+                <Collection>
+                    <Record>
+                        <PropertyValue Property="rel" String="author"/>
+                        <PropertyValue Property="href" String="https://cap.cloud.sap"/>
+                    </Record>
+                </Collection>
+            </Annotation>
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="OrdenesCompra" EntityType="API.OrdenesCompra"/>
+            </EntityContainer>
+            <EntityType Name="OrdenesCompra">
+                <Key>
+                    <PropertyRef Name="EBELN"/>
+                    <PropertyRef Name="EBELP"/>
+                </Key>
+                <Property Name="EBELN" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="EBELP" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="BUKRS" Type="Edm.String" MaxLength="4" Nullable="false"/>
+                <Property Name="BSART" Type="Edm.String" MaxLength="4" Nullable="false"/>
+                <Property Name="AEDAT" Type="Edm.DateTimeOffset" Nullable="false"/>
+                <Property Name="LIFNR" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="MATNR" Type="Edm.String" MaxLength="40" Nullable="false"/>
+                <Property Name="MENGE" Type="Edm.Decimal" Precision="31" Scale="0" Nullable="false"/>
+                <Property Name="MEINS" Type="Edm.String" MaxLength="3" Nullable="false"/>
+                <Property Name="NETPR" Type="Edm.Decimal" Precision="31" Scale="0" Nullable="false"/>
+                <Property Name="TOTAL" Type="Edm.Decimal" Precision="31" Scale="2" Nullable="false"/>
+                <Property Name="WAERS" Type="Edm.String" MaxLength="5" Nullable="false"/>
+            </EntityType>
+            <Annotations Target="API.EntityContainer/OrdenesCompra">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
