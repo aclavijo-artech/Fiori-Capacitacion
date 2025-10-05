@@ -58,7 +58,7 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": true,
+    "flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.140.0",
       "libs": {
@@ -103,8 +103,7 @@
         "type": "View",
         "viewType": "XML",
         "path": "tpcurso.view",
-        "async": true,
-        "viewPath": "tpcurso.view"
+        "async": true
       },
       "routes": [
         {
@@ -125,8 +124,12 @@
     "rootView": {
       "viewName": "tpcurso.view.App",
       "type": "XML",
-      "id": "App",
+      "id": "RootApp",
       "async": true
     }
-  }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "tpcurso"
+    }
 }

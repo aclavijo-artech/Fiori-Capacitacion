@@ -23,14 +23,15 @@
     "build": "ui5 build --config=ui5.yaml --clean-dest --dest dist",
     "deploy": "fiori cfDeploy",
     "deploy-config": "fiori add deploy-config",
-    "start-noflp": "fiori run --open \"/index.html?sap-ui-xx-viewCache=false\"",
+    "start-noflp": "fiori run --open \"/index.html?sap-ui-xx-vinpewCache=false\"",
     "start-mock": "fiori run --config ./ui5-mock.yaml --open \"test/flp.html#app-preview\"",
     "int-test": "fiori run --config ./ui5-mock.yaml --open \"test/integration/opaTests.qunit.html\"",
     "start-variants-management": "fiori run --open \"/preview.html#app-preview\"",
     "unit-test": "fiori run --config ./ui5-mock.yaml --open \"test/unit/unitTests.qunit.html\"",
     "build:cf": "ui5 build preload --clean-dest --config ui5-deploy.yaml --include-task=generateCachebusterInfo",
     "build:mta": "rimraf resources mta_archives && mbt build",
-    "undeploy": "cf undeploy tpcurso --delete-services --delete-service-keys --delete-service-brokers"
+    "undeploy": "cf undeploy tpcurso --delete-services --delete-service-keys --delete-service-brokers",
+    "deploy:class": "rimraf resources mta_archives && ui5 build && mbt build && cf deploy ./mta_archives/*"
   },
   "sapuxLayer": "CUSTOMER_BASE"
 }
