@@ -19,6 +19,11 @@ server:
           - path: /odata
             url: https://99fc57f7trial-proyecto-final-api-srv.cfapps.us10-001.hana.ondemand.com
             destination: TrabajoFinal
+          - url: https://besr4d.artech.cr/
+            client: '400'
+            authenticationType: BasicAuthentication
+            destination: R4D
+            path: /sap
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:

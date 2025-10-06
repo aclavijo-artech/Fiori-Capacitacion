@@ -16,7 +16,7 @@ sap.ui.define([
          onSearch: function () {
             debugger;
             var oView = this.getView();
-            var oODataModel = this.getOwnerComponent().getModel();
+            var oODataModel = oView.getModel("Z_TRABAJOFINAL_FIORI_SRV");
             var oLocalModel = oView.getModel("local");
             var sEbeln = oView.byId("idEbeln").getValue();
 

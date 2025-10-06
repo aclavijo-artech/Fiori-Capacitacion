@@ -14,7 +14,7 @@
               <Button text="Buscar" press="onSearch" class="sapUiSmallMarginBegin"/>
             </HBox>
         <!-- Tabla -->
-            <Table id="idTable" class="sapUiSmallMarginTop">
+            <Table id="idTable" class="sapUiSmallMarginTop" items="{Z_TRABAJOFINAL_FIORI_SRV}">
             <columns>
                 <Column><Text text="Pedido"/></Column>
                 <Column><Text text="Org. Compras"/></Column>

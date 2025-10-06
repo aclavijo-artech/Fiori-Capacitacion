@@ -24,6 +24,15 @@
           "localUri": "localService/mainService/metadata.xml",
           "odataVersion": "4.0"
         }
+      },
+      "Z_TRABAJOFINAL_FIORI_SRV": {
+        "uri": "/sap/opu/odata/sap/Z_TRABAJOFINAL_FIORI_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/Z_TRABAJOFINAL_FIORI_SRV/metadata.xml",
+          "odataVersion": "2.0"
+        }
       }
     },
     "crossNavigation": {
@@ -85,6 +94,11 @@
           "autoExpandSelect": true,
           "earlyRequests": true
         }
+      },
+      "Z_TRABAJOFINAL_FIORI_SRV": {
+        "dataSource": "Z_TRABAJOFINAL_FIORI_SRV",
+        "preload": true,
+        "settings": {}
       }
     },
     "resources": {
@@ -131,5 +145,5 @@
   "sap.cloud": {
     "public": true,
     "service": "tpcurso"
-    }
+  }
 }

@@ -33,6 +33,11 @@ server:
           - path: /odata
             url: https://99fc57f7trial-proyecto-final-api-srv.cfapps.us10-001.hana.ondemand.com
             destination: TrabajoFinal
+          - url: https://besr4d.artech.cr/
+            client: '400'
+            authenticationType: BasicAuthentication
+            destination: R4D
+            path: /sap
     - name: sap-fe-mockserver
       beforeMiddleware: csp
       configuration:
@@ -41,5 +46,9 @@ server:
           - urlPath: /odata/v4/api
             metadataPath: ./webapp/localService/mainService/metadata.xml
             mockdataPath: ./webapp/localService/mainService/data
+            generateMockData: true
+          - urlPath: /sap/opu/odata/sap/Z_TRABAJOFINAL_FIORI_SRV
+            metadataPath: ./webapp/localService/Z_TRABAJOFINAL_FIORI_SRV/metadata.xml
+            mockdataPath: ./webapp/localService/Z_TRABAJOFINAL_FIORI_SRV/data
             generateMockData: true
         annotations: []
