@@ -8,26 +8,48 @@
               <Label text="Pedido (EBELN)" labelFor="idEbeln"/>
               <Input id="idEbeln" width="200px" placeholder="Ej: 4500000010"/>
               <Label text="Fecha de creación del registro" labelFor="idAedat" class="sapUiSmallMarginBegin"/>
-              <Input id="idAedat" width="200px" placeholder="Ej: 22.12.2015"/>
+              <DatePicker width="200px"
+                        id="idAedat"
+                        valueFormat="yyyy-MM-dd"
+                        displayFormat="dd/MM/yyyy"
+                        placeholder="Selecciona una fecha"
+                        required="true"/>
               <Label text="Proveedor" labelFor="idLifnr"/>
               <Input id="idLifnr" width="200px" placeholder="Ej: 17300002"/>
               <Button text="Buscar" press="onSearch" class="sapUiSmallMarginBegin"/>
             </HBox>
         <!-- Tabla -->
-            <Table id="idTable" class="sapUiSmallMarginTop" items="{Z_TRABAJOFINAL_FIORI_SRV}">
+            <Table id="idTable" class="sapUiSmallMarginTop" items="{local>/results}">
+            <!-- <Table id="idTable" class="sapUiSmallMarginTop"> -->
             <columns>
-                <Column><Text text="Pedido"/></Column>
-                <Column><Text text="Org. Compras"/></Column>
-                <Column><Text text="Proveedor"/></Column>
-                <Column><Text text="Fecha Doc." /></Column>
+                <Column><Text text="{i18n>Pedido}"/></Column>
+                <Column><Text text="{i18n>Posicion}"/></Column>
+                <Column><Text text="{i18n>Sociedad}"/></Column>
+                <Column><Text text="{i18n>DocCompra}"/></Column>
+                <Column><Text text="{i18n>FechaReg}"/></Column>
+                <Column><Text text="{i18n>Proveedor}"/></Column>
+                <Column><Text text="{i18n>Material}"/></Column>
+                <Column><Text text="{i18n>Cantidad}"/></Column>
+                <Column><Text text="{i18n>UM}"/></Column>
+                <Column><Text text="{i18n>Importe}"/></Column>
+                <Column><Text text="{i18n>Total}"/></Column>
+                <Column><Text text="{i18n>Moneda}"/></Column>
             </columns>
             <items>
                 <ColumnListItem>
                 <cells>
-                    <Text text="{EBELN}"/>
-                    <Text text="{EKORG}"/>
-                    <Text text="{LIFNR}"/>
-                    <Text text="{BEDAT}"/>
+                    <Text text="{local>EBELN}"/>
+                    <Text text="{local>EBELP}"/>
+                    <Text text="{local>BUKRS}"/>
+                    <Text text="{local>BSART}"/>
+                    <Text text="{local>AEDAT}"/>
+                    <Text text="{local>LIFNR}"/>
+                    <Text text="{local>MATNR}"/>
+                    <Text text="{local>MENGE}"/>
+                    <Text text="{local>MEINS}"/>
+                    <Text text="{local>NETPR}"/>
+                    <Text text="{local>TOTAL}"/>
+                    <Text text="{local>WAERS}"/>
                 </cells>
                 </ColumnListItem>
             </items>

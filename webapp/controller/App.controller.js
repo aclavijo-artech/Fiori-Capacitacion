@@ -19,16 +19,20 @@ sap.ui.define([
             var oODataModel = oView.getModel("Z_TRABAJOFINAL_FIORI_SRV");
             var oLocalModel = oView.getModel("local");
             var sEbeln = oView.byId("idEbeln").getValue();
+            var sAedat = oView.byId("idAedat").getValue();
+            var sLifnr = oView.byId("idLifnr").getValue();
 
             var aFilters = [];
 
             if (sEbeln) {
-                aFilters.push(new Filter("EBELN", FilterOperator.EQ, sEbeln));
-            }
-
+                aFilters.push(new Filter("EBELN", FilterOperator.EQ, sEbeln)); }
+            if (sAedat) {
+                aFilters.push(new Filter("AEDAT", FilterOperator.EQ, sAedat)); }
+            if (sLifnr) {
+                aFilters.push(new Filter("LIFNR", FilterOperator.EQ, sLifnr)); }
             // Invocar servicio OData 
-            oODataModel.read("/OrdenesCompra", {
-                 filters: aFilters,
+            oODataModel.read("/ordenescompraSet", {
+                filters: aFilters,
                 success: function (oData) {
                   // Cargar resultados en modelo local
                   oLocalModel.setProperty("/results", oData.results);
