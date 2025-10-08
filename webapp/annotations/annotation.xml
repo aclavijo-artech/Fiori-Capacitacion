@@ -1,0 +1,246 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <!-- BEGIN additions -->
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <!-- END additions -->
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/sap/Z_TRABAJOFINAL_FIORI_SRV/$metadata">
+        <edmx:Include Namespace="Z_TRABAJOFINAL_FIORI_SRV"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <!-- BEGIN additions -->
+
+            <!-- [ EntitySet Collection ] Orders 
+
+            <Annotations Target="Z_TRABAJOFINAL_FIORI_SRV.Z_TRABAJOFINAL_FIORI_SRV_Entities/ordenescompraSet">
+                <Annotation Term="Capabilities.SearchRestrictions" >
+                    <Record Type="Capabilities.SearchRestrictionsType">
+                        <PropertyValue Property="Searchable" Bool="false" />
+                    </Record>
+                </Annotation>
+            </Annotations>
+            -->
+
+            <!-- [ Property ] ordenesdecompra/EBELN -->
+
+            <Annotations Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra/EBELN">
+                <Annotation Term="Common.Label" String="{@i18n>EBELN_label}" />
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="false" />
+                <Annotation Term='Common.ValueList' >
+                    <Record Type="Common.ValueListType" >
+                        <PropertyValue Property="CollectionPath" String="ordenescompraSet" />
+                        <PropertyValue Property="Parameters"  >
+                            <Collection >
+                                <Record Type="Common.ValueListParameterInOut" >
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="EBELN" />
+                                    <PropertyValue Property="ValueListProperty" String="EBELN" />
+                                </Record >
+                            </Collection>
+                        </PropertyValue >
+                    </Record >
+                </Annotation >
+            </Annotations>
+
+            <!-- [ Property ] ordenesdecompra/AEDAT -->
+
+            <Annotations Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra/AEDAT">
+                <Annotation Term="Common.Label" String="{@i18n>AEDAT_label}" />
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="false" />
+            </Annotations>
+
+            <!-- [ Property ] ordenesdecompra/LIFNR -->
+
+            <Annotations Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra/LIFNR">
+                <Annotation Term="Common.Label" String="{@i18n>LIFNR_label}" />
+            </Annotations>
+
+
+            <!-- [ EntityType ] ordenesdecompra -->
+
+            <Annotations Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra">
+
+                <!-- [ Header Info ] 
+                <Annotation Term="UI.HeaderInfo"  >
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="{@i18n>orderSingular}" />
+                        <PropertyValue Property="TypeNamePlural" String="{@i18n>orderPlural}" />
+                        <PropertyValue Property="Title" >
+                            <Record Type="UI.DataField"  >
+                                <PropertyValue Property="Value" Path="OrderID" ></PropertyValue >
+                            </Record >
+                        </PropertyValue >
+                        <PropertyValue Property="Description" >
+                            <Record Type="UI.DataField"  >
+                                <PropertyValue Property="Value" Path="Customer/CompanyName" ></PropertyValue >
+                            </Record >
+                        </PropertyValue >
+                    </Record>
+                </Annotation >
+                -->
+
+                <!-- Selection Fields -->
+                <Annotation Term="UI.SelectionFields"  >
+                    <Collection >
+                        <PropertyPath>EBELN</PropertyPath>
+                        <PropertyPath>AEDAT</PropertyPath>
+                        <PropertyPath>LIFNR</PropertyPath>
+                    </Collection>
+                </Annotation >
+
+                <!-- Line Item -->
+                
+                <Annotation Term="UI.LineItem" >
+                     <Collection >
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>EBELN_label}" />
+                            <PropertyValue Property="Value" Path="EBELN" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>EBELP_label}" />
+                            <PropertyValue Property="Value" Path="EBELP" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>BUKRS_label}" />
+                            <PropertyValue Property="Value" Path="BUKRS" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>BSART_label}" />
+                            <PropertyValue Property="Value" Path="BSART" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>AEDAT_label}" />
+                            <PropertyValue Property="Value" Path="AEDAT" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>LIFNR_label}" />
+                            <PropertyValue Property="Value" Path="LIFNR" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>MATNR_label}" />
+                            <PropertyValue Property="Value" Path="MATNR" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>MENGE_label}" />
+                            <PropertyValue Property="Value" Path="MENGE" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>MEINS_label}" />
+                            <PropertyValue Property="Value" Path="MEINS" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>NETPR_label}" />
+                            <PropertyValue Property="Value" Path="NETPR" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>TOTAL_label}" />
+                            <PropertyValue Property="Value" Path="TOTAL" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>WAERS_label}" />
+                            <PropertyValue Property="Value" Path="WAERS" />
+                        </Record>                </Collection>
+                </Annotation >
+
+                <!-- Facets 
+
+                <Annotation Term="UI.Facets">
+                    <Collection >
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="{@i18n>orderFaCustomer}" />
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#orderCustomer" />
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="{@i18n>orderFaShipping}" />
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#orderShipping" />
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="{@i18n>orderFaEmployee}" />
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#orderEmployee" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+                -->
+
+                <!-- UI.FieldGroup -->
+
+                <!-- UI.FieldGroup orderCustomer 
+
+                <Annotation Term="UI.FieldGroup" Qualifier="orderCustomer" >
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection >
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="CustomerID"  />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Customer/ContactName"  />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation >
+                -->
+
+                <!-- UI.FieldGroup orderShipping 
+
+                <Annotation Term="UI.FieldGroup" Qualifier="orderShipping" >
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection >
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ShipAddress"  />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ShipPostalCode"  />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ShipCity"  />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ShipCountry"  />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ShipVia"  />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation >
+                -->
+
+                <!-- UI.FieldGroup orderEmployee 
+
+                <Annotation Term="UI.FieldGroup" Qualifier="orderEmployee" >
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection >
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="EmployeeID"  />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Employee/FirstName"  />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Employee/LastName"  />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation >
+                -->
+
+            </Annotations>
+
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
