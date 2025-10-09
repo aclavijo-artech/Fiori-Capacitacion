@@ -10,13 +10,15 @@
               <Label text="Fecha de creación del registro" labelFor="idAedat" class="sapUiSmallMarginBegin"/>
               <DatePicker width="200px"
                         id="idAedat"
-                        valueFormat="yyyy-MM-dd"
+                        valueFormat="yyyy/MM/dd"
                         displayFormat="dd/MM/yyyy"
                         placeholder="Selecciona una fecha"
-                        required="true"/>
+                        required="true"
+                        change="_onDateChange"
+                        />
               <Label text="Proveedor" labelFor="idLifnr"/>
               <Input id="idLifnr" width="200px" placeholder="Ej: 17300002"/>
-              <Button text="Buscar" press="onSearch" class="sapUiSmallMarginBegin"/>
+              <Button text="Buscar" press="onSearch(1)" class="sapUiSmallMarginBegin"/>
             </HBox>
         <!-- Tabla -->
             <Table id="idTable" class="sapUiSmallMarginTop" items="{local>/results}">
@@ -54,6 +56,11 @@
                 </ColumnListItem>
             </items>
             </Table>
+            <HBox justifyContent="Center" class="sapUiSmallMarginTop">
+                <Button text="Anterior" press=".onPrevPage" />
+                <Text id="pageText" text="{local>/iPage}" class="sapUiSmallMarginBegin sapUiSmallMarginEnd"/>
+                <Button id="idSig" text="Siguiente" press=".onNextPage"  enabled="{= ${local>/results}.length !== 0 }"/>
+            </HBox>
         </VBox>
     </Page>
     </App>
