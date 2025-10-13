@@ -1,0 +1,102 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/sap/Z_TRABAJOFINAL_FIORI_SRV/$metadata">
+        <edmx:Include Namespace="Z_TRABAJOFINAL_FIORI_SRV"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <Annotations Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra/EBELN">
+                <Annotation Term="Common.Label" String="{@i18n>EBELN}" />
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true" />
+                <Annotation Term='Common.ValueList' >
+                    <Record Type="Common.ValueListType" >
+                        <PropertyValue Property="CollectionPath" String="ordenescompraSet" />
+                        <PropertyValue Property="Parameters"  >
+                            <Collection >
+                                <Record Type="Common.ValueListParameterInOut" >
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="EBELN" />
+                                    <PropertyValue Property="ValueListProperty" String="EBELN" />
+                                </Record >
+                            </Collection>
+                        </PropertyValue >
+                    </Record >
+                </Annotation >
+            </Annotations >
+            <Annotations Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra/AEDAT">
+                <Annotation Term="Common.Label" String="{@i18n>AEDAT}" />
+            </Annotations >
+            <Annotations Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra/LIFNR">
+                <Annotation Term="Common.Label" String="{@i18n>LIFNR}" />
+            </Annotations >
+
+
+
+            <Annotations Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra"  >
+                <Annotation Term="UI.SelectionFields" >
+                    <Collection >
+                        <PropertyPath>EBELN</PropertyPath>
+                        <PropertyPath>AEDAT</PropertyPath>
+                        <PropertyPath>LIFNR</PropertyPath>
+                    </Collection>
+                </Annotation >
+                <Annotation Term="UI.LineItem"  >
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="EBELN"></PropertyValue >
+                        </Record >
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>EBELP}"  ></PropertyValue>
+                            <PropertyValue Property="Value" Path="EBELP"></PropertyValue >
+                        </Record >
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>BUKRS}"  ></PropertyValue>
+                            <PropertyValue Property="Value" Path="BUKRS"></PropertyValue >
+                        </Record >
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>BSART}"  ></PropertyValue>
+                            <PropertyValue Property="Value" Path="BSART"></PropertyValue >
+                        </Record >
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="AEDAT"></PropertyValue >
+                        </Record >
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="LIFNR"></PropertyValue >
+                        </Record >
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>MATNR}"  ></PropertyValue>
+                            <PropertyValue Property="Value" Path="MATNR"></PropertyValue >
+                        </Record >
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>MENGE}"  ></PropertyValue>
+                            <PropertyValue Property="Value" Path="MENGE"></PropertyValue >
+                        </Record >
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>MEINS}"  ></PropertyValue>
+                            <PropertyValue Property="Value" Path="MEINS"></PropertyValue >
+                        </Record >
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>NETPR}"  ></PropertyValue>
+                            <PropertyValue Property="Value" Path="NETPR"></PropertyValue >
+                        </Record >
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>TOTAL}"  ></PropertyValue>
+                            <PropertyValue Property="Value" Path="TOTAL"></PropertyValue >
+                        </Record >
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>WAERS}"  ></PropertyValue>
+                            <PropertyValue Property="Value" Path="WAERS"></PropertyValue >
+                        </Record >
+                    </Collection>
+                </Annotation >
+            </Annotations >
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
