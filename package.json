@@ -8,14 +8,16 @@
     "sapui5"
   ],
   "main": "webapp/index.html",
-  "dependencies": {},
+  "dependencies": {
+    "mbt": "^1.2.34"
+  },
   "devDependencies": {
-    "@ui5/cli": "^4.0.16",
-    "@sap/ux-ui5-tooling": "1",
     "@sap-ux/ui5-middleware-fe-mockserver": "2",
+    "@sap/ux-ui5-tooling": "1",
+    "@ui5/cli": "^4.0.16",
     "rimraf": "^5.0.5"
   },
- "scripts": {
+  "scripts": {
     "start": "fiori run --open \"test/flp.html#app-preview\"",
     "start-local": "fiori run --config ./ui5-local.yaml --open \"test/flp.html#app-preview\"",
     "build": "ui5 build --config=ui5.yaml --clean-dest --dest dist",
@@ -27,8 +29,8 @@
     "build:cf": "ui5 build preload --clean-dest --config ui5-deploy.yaml --include-task=generateCachebusterInfo",
     "build:mta": "rimraf resources mta_archives && mbt build",
     "undeploy": "cf undeploy projectcamilov2--delete-services --delete-service-keys --delete-service-brokers",
-    "auto-deploy": "rimraf resources mta_archives && ui5 build && mbt build && cf deploy ./mta_archives/*"
- },
+    "auto-deploy": "rimraf resources ./mta_archives/* && ui5 build && mbt build && cf deploy ./mta_archives/*"
+  },
   "sapuxLayer": "CUSTOMER_BASE",
   "sapux": true
 }
