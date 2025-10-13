@@ -34,7 +34,22 @@
           "odataVersion": "2.0"
         }
       }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "tp_semantic-display": {
+          "semanticObject": "tp_semantic",
+          "action": "display",
+          "title": "{{tp_semantic-display.flpTitle}}",
+          "subTitle": "{{tp_semantic-display.flpSubtitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
     }
+  
   },
   "sap.ui": {
     "technology": "UI5",
@@ -146,5 +161,8 @@
   "sap.fiori": {
     "registrationIds": [],
     "archeType": "transactional"
+  },
+  "sap.cloud": {
+    "public": true, "service": "trabajopractico"
   }
 }

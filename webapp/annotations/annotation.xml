@@ -1,4 +1,7 @@
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
     <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
         <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
     </edmx:Reference>
@@ -13,6 +16,171 @@
     </edmx:Reference>
     <edmx:DataServices>
         <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <!-- <Annotations Target="Z_TRABAJOFINAL_FIORI_SRV.Z_TRABAJOFINAL_FIORI_SRV_Entities/ordenescompraSet"  >
+                <Annotation Term="Capabilities.SearchRestrictions"  >
+                    <Record Type="Capabilities.SearchRestrictionsType">
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record >
+                </Annotation >
+            </Annotations > -->
+
+            <Annotations  Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra/EBELN" >
+                <Annotation Term="Common.Label" String="{@i18n>nro_doc_compras}"/>
+            </Annotations >
+            <Annotations  Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra/AEDAT" >
+                <Annotation Term="Common.Label" String="{@i18n>fecha_de_creacion}"/>
+            </Annotations >
+            <Annotations  Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra/LIFNR" >
+                <Annotation Term="Common.Label" String="{@i18n>nro_cuenta_proveedor}"/>
+            </Annotations >
+            <Annotations  Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra/EBELP" >
+                <Annotation Term="Common.Label" String="{@i18n>nro_de_posicion_documento_de_compras}"/>
+            </Annotations >
+            <Annotations  Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra/BUKRS" >
+                <Annotation Term="Common.Label" String="{@i18n>Sociedad}"/>
+            </Annotations >
+            <Annotations  Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra/BSART" >
+                <Annotation Term="Common.Label" String="{@i18n>clase_de_documento_de_compras}"/>
+            </Annotations >
+            <Annotations  Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra/MATNR" >
+                <Annotation Term="Common.Label" String="{@i18n>nro_de_material}"/>
+            </Annotations >
+            <Annotations  Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra/MENGE" >
+                <Annotation Term="Common.Label" String="{@i18n>cantidad_de_pedido}"/>
+            </Annotations >
+            <Annotations  Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra/MEINS" >
+                <Annotation Term="Common.Label" String="{@i18n>unidad_de_medida_de_pedido}"/>
+            </Annotations >
+            <Annotations  Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra/NETPR" >
+                <Annotation Term="Common.Label" String="{@i18n>precio_neto}"/>
+            </Annotations >
+            <Annotations  Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra/WAERS" >
+                <Annotation Term="Common.Label" String="{@i18n>clave_de_moneda}"/>
+            </Annotations >
+
+
+
+
+            <Annotations Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra" >
+                 <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="{@i18n>tableTitleSingular}"/>
+                        <PropertyValue Property="TypeNamePlural" String="{@i18n>tableTitlePlural}"/>
+        
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="EBELN"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="BSART"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+
+                <Annotation Term="UI.SelectionFields" >
+                    <Collection>
+                       <PropertyPath>EBELN</PropertyPath>
+                       <!--   <PropertyPath>EBELP</PropertyPath>
+                        <PropertyPath>BUKRS</PropertyPath>
+                        <PropertyPath>BSART</PropertyPath> -->
+                        <PropertyPath>AEDAT</PropertyPath>
+                        <PropertyPath>LIFNR</PropertyPath>
+                        <!-- <PropertyPath>MATNR</PropertyPath>
+                        <PropertyPath>MENGE</PropertyPath>
+                        <PropertyPath>MEINS</PropertyPath>
+                        <PropertyPath>NETPR</PropertyPath>
+                        <PropertyPath>TOTAL</PropertyPath>
+                        <PropertyPath>WAERS</PropertyPath> -->
+                    </Collection>
+                </Annotation>
+
+                <Annotation Term="UI.LineItem" >
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="EBELN" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="EBELP" />
+                        </Record>
+                        <!-- <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>customer}"/>
+                            <PropertyValue Property="Value" Path="Customer/CompanyName" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n>employee}"/>
+                            <PropertyValue Property="Value" Path="Employee/FirstName" />
+                        </Record> -->
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="BUKRS" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="BSART" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="AEDAT" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="LIFNR" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="MATNR" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="MENGE" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="MEINS" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="NETPR" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="TOTAL" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="WAERS" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="{@i18n>tabCaseOverview}" />
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#tabCaseOverview" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+                
+                <Annotation Term="UI.FieldGroup" Qualifier="tabCaseOverview">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="EBELN" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="AEDAT" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="BSART" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="MATNR" />
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="LIFNR" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+            </Annotations> 
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>
