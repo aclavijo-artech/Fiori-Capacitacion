@@ -14,16 +14,16 @@
     <edmx:DataServices>
         <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
             <Annotations Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra/EBELN">
-                <Annotation Term="Common.Label" String="{@i18n>EBELN}" />
-                <Annotation Term="Common.ValueListWithFixedValues" Bool="true" />
+                <Annotation Term="Common.Label" String="{@i18n>EBELN}"/>
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
                 <Annotation Term='Common.ValueList' >
                     <Record Type="Common.ValueListType" >
-                        <PropertyValue Property="CollectionPath" String="ordenescompraSet" />
+                        <PropertyValue Property="CollectionPath" String="ordenescompraSet"/>
                         <PropertyValue Property="Parameters"  >
                             <Collection >
                                 <Record Type="Common.ValueListParameterInOut" >
-                                    <PropertyValue Property="LocalDataProperty" PropertyPath="EBELN" />
-                                    <PropertyValue Property="ValueListProperty" String="EBELN" />
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="EBELN"/>
+                                    <PropertyValue Property="ValueListProperty" String="EBELN"/>
                                 </Record >
                             </Collection>
                         </PropertyValue >
@@ -31,10 +31,10 @@
                 </Annotation >
             </Annotations >
             <Annotations Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra/AEDAT">
-                <Annotation Term="Common.Label" String="{@i18n>AEDAT}" />
+                <Annotation Term="Common.Label" String="{@i18n>AEDAT}"/>
             </Annotations >
             <Annotations Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra/LIFNR">
-                <Annotation Term="Common.Label" String="{@i18n>LIFNR}" />
+                <Annotation Term="Common.Label" String="{@i18n>LIFNR}"/>
             </Annotations >
 
 
@@ -50,48 +50,48 @@
                 <Annotation Term="UI.LineItem"  >
                     <Collection>
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="EBELN"></PropertyValue >
+                            <PropertyValue Property="Value" Path="EBELN"/>
                         </Record >
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="{@i18n>EBELP}"  ></PropertyValue>
-                            <PropertyValue Property="Value" Path="EBELP"></PropertyValue >
+                            <PropertyValue Property="Label" String="{@i18n>EBELP}"/>
+                            <PropertyValue Property="Value" Path="EBELP"/>
                         </Record >
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="{@i18n>BUKRS}"  ></PropertyValue>
-                            <PropertyValue Property="Value" Path="BUKRS"></PropertyValue >
+                            <PropertyValue Property="Label" String="{@i18n>BUKRS}"/>
+                            <PropertyValue Property="Value" Path="BUKRS"/>
                         </Record >
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="{@i18n>BSART}"  ></PropertyValue>
-                            <PropertyValue Property="Value" Path="BSART"></PropertyValue >
+                            <PropertyValue Property="Label" String="{@i18n>BSART}"/>
+                            <PropertyValue Property="Value" Path="BSART"/>
                         </Record >
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="AEDAT"></PropertyValue >
+                            <PropertyValue Property="Value" Path="AEDAT"/>
                         </Record >
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="LIFNR"></PropertyValue >
+                            <PropertyValue Property="Value" Path="LIFNR"/>
                         </Record >
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="{@i18n>MATNR}"  ></PropertyValue>
+                            <PropertyValue Property="Label" String="{@i18n>MATNR}"/>
                             <PropertyValue Property="Value" Path="MATNR"></PropertyValue >
                         </Record >
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="{@i18n>MENGE}"  ></PropertyValue>
+                            <PropertyValue Property="Label" String="{@i18n>MENGE}"/>
                             <PropertyValue Property="Value" Path="MENGE"></PropertyValue >
                         </Record >
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="{@i18n>MEINS}"  ></PropertyValue>
+                            <PropertyValue Property="Label" String="{@i18n>MEINS}"/>
                             <PropertyValue Property="Value" Path="MEINS"></PropertyValue >
                         </Record >
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="{@i18n>NETPR}"  ></PropertyValue>
+                            <PropertyValue Property="Label" String="{@i18n>NETPR}"/>
                             <PropertyValue Property="Value" Path="NETPR"></PropertyValue >
                         </Record >
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="{@i18n>TOTAL}"  ></PropertyValue>
+                            <PropertyValue Property="Label" String="{@i18n>TOTAL}"/>
                             <PropertyValue Property="Value" Path="TOTAL"></PropertyValue >
                         </Record >
                         <Record Type="UI.DataField">
-                            <PropertyValue Property="Label" String="{@i18n>WAERS}"  ></PropertyValue>
+                            <PropertyValue Property="Label" String="{@i18n>WAERS}"/>
                             <PropertyValue Property="Value" Path="WAERS"></PropertyValue >
                         </Record >
                     </Collection>
