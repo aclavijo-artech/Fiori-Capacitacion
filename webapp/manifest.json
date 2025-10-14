@@ -42,6 +42,7 @@
           "action": "trabajofinal",
           "title": "{{PD_Camilo_Enriquez-trabajofinal.flpTitle}}",
           "subTitle": "{{PD_Camilo_Enriquez-trabajofinal.flpSubtitle}}",
+          "icon": "sap-icon://biometric-face",
           "signature": {
             "parameters": {},
             "additionalParameters": "allowed"
