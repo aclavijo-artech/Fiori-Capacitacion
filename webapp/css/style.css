@@ -1,0 +1,14 @@
+/* webapp/css/style.css */
+
+/* Fondo de header y celdas de la columna Total */
+.tpf-total-col .sapUiTableColCell { background-color: #e8f5e9 !important; }
+.tpf-total-cell .sapUiTableCell   { background-color: #e8f5e9 !important; }
+
+/* Texto más notorio */
+.tpf-total-cell .sapMText,
+.tpf-total-cell .sapMObjectNumberText { font-weight: 600; }
+
+/* Semáforo */
+.tpf-green  .sapMText, .tpf-green  .sapMObjectNumberText { color: #107E3E !important; }
+.tpf-yellow .sapMText, .tpf-yellow .sapMObjectNumberText { color: #E9730C !important; }
+.tpf-red    .sapMText, .tpf-red    .sapMObjectNumberText { color: #BB0000 !important; }

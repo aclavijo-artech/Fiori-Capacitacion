@@ -1,0 +1,94 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Measures.V1.xml">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/sap/Z_TRABAJOFINAL_FIORI_SRV/$metadata">
+        <edmx:Include Namespace="Z_TRABAJOFINAL_FIORI_SRV" />
+    </edmx:Reference>
+
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <!-- Unidades/monedas -->
+            <Annotations Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra/TOTAL">
+                <Annotation Term="Measures.ISOCurrency" Path="WAERS" />
+            </Annotations>
+
+            <Annotations Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra/MENGE">
+                <Annotation Term="Org.OData.Measures.V1.Unit" Path="MEINS" />
+                <Annotation Term="Common.Label" String="{@i18n>quantity}" />
+            </Annotations>
+
+            <!-- Columnas del List Report -->
+            <Annotations Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="EBELN" />
+                            <PropertyValue Property="Label" String="{@i18n>docnr}" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="EBELP" />
+                            <PropertyValue Property="Label" String="{@i18n>position}" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="BUKRS" />
+                            <PropertyValue Property="Label" String="{@i18n>company}" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="BSART" />
+                            <PropertyValue Property="Label" String="{@i18n>ordertype}" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="AEDAT" />                            
+                            <PropertyValue Property="Label" String="{@i18n>creationdate}" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="LIFNR" />
+                            <PropertyValue Property="Label" String="{@i18n>supplier}" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="MATNR" />
+                            <PropertyValue Property="Label" String="{@i18n>material}" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="MENGE" />
+                            <PropertyValue Property="Label" String="{@i18n>quantity}" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="MEINS" />
+                            <PropertyValue Property="Label" String="{@i18n>unit}" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="NETPR" />
+                            <PropertyValue Property="Label" String="{@i18n>price}" />
+                        </Record>
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="TOTAL" />
+                            <PropertyValue Property="Label" String="{@i18n>total}" />
+                            <PropertyValue Property="Criticality" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                <!-- Filtros de selección -->
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>EBELN</PropertyPath>
+                        <PropertyPath>AEDAT</PropertyPath>
+                        <PropertyPath>LIFNR</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
