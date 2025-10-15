@@ -24,12 +24,10 @@
         }
       },
       "mainService": {
-        "uri": "/sap/opu/odata4/iwbep/all/srvd/sap/zi_fxx_global_ctrl_srv/0001/",
+        "uri": "/sap/opu/odata4/sap/zui_fxx_global_ctrl/srvd/sap/zi_fxx_global_ctrl_srv/0001/",
         "type": "OData",
         "settings": {
-          "annotations": [
-            "annotation"
-          ],
+          "annotations": [],
           "localUri": "localService/mainService/metadata.xml",
           "odataVersion": "4.0"
         }
@@ -73,6 +71,10 @@
           "bundleName": "fxxglobalctrl.i18n.i18n"
         }
       },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      },
       "": {
         "dataSource": "mainService",
         "preload": true,
@@ -81,10 +83,6 @@
           "autoExpandSelect": true,
           "earlyRequests": true
         }
-      },
-      "@i18n": {
-        "type": "sap.ui.model.resource.ResourceModel",
-        "uri": "i18n/i18n.properties"
       }
     },
     "resources": {

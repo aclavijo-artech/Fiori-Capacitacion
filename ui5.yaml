@@ -9,7 +9,7 @@ server:
     - name: fiori-tools-proxy
       afterMiddleware: compression
       configuration:
-        ignoreCertErrors: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        ignoreCertErrors: false
         ui5:
           path:
             - /resources
@@ -19,6 +19,11 @@ server:
           - path: /sap
             url: http://besr4d
             destination: R4D
+          - url: http://besr4d:80/
+            client: '400'
+            authenticationType: BasicAuthentication
+            destination: R4D
+            path: /sap/opu/odata4/sap/zui_fxx_global_ctrl/srvd/sap/zi_fxx_global_ctrl_srv/0001/
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
