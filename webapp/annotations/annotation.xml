@@ -70,36 +70,6 @@
                 </Collection>
             </Annotation>
         </Annotations>
-        
-
-
-        <!-- <Annotations Target="Z_TRABAJOFINAL_FIORI_SRV.ordenesdecompra">
-
-            <Annotation Term="UI.LineItem">
-            <Collection>
-                <Record Type="UI.DataField">
-                    <PropertyValue Property="Criticality" Path="EBELN"/>
-                    <PropertyValue Property="Value" Path="UI.Criticality/Positive"/>
-                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
-                </Record>
-            </Collection>
-            </Annotation>
-        </Annotations> -->
-
-
-            <!-- ini -->
-            <!-- <Annotation Term="UI.LineItem">
-            <Collection>
-                <Record Type="UI.DataField">
-                    <PropertyValue Property="Criticality" Path="EBELN"/>
-                    <PropertyValue Property="Value" Path="UI.Criticality/Negative"/>
-                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
-                </Record>
-            </Collection>
-            </Annotation> -->
-            <!-- fin -->
-
-
         <!-- FIN YONI -->
         </Schema>
     </edmx:DataServices>
